@@ -4,11 +4,15 @@ body {
   font-size: 40px;
   color: #f7a1ff;
 }
+div.a {
+  text-align: center;
+  margin-top: 50px;
+}
   /* Navbar container */
 .navbar {
   overflow: hidden;
   background-color: #00FFBD;
-  font-family: Arial;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Links inside the navbar */
@@ -39,9 +43,9 @@ body {
   margin: 0; /* Important for vertical align on mobile phones */
 }
 
-/* Add a red background color to navbar links on hover */
+/* Add background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #f7a1ff;
 }
 
 /* Dropdown content (hidden by default) */
