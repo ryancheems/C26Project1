@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Unit of Study Outline" />
+    <meta name="keywords" 	 content="HTML, CSS, Javascript" />
+    <meta name="author"		 content="Thao Ngan Ngo" />
+    <title>Outline</title>
+<body>
+    <form action="https://mercury.swin.edu.au/it000000/formtest.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="'fname" name="fname" maxlength="25"
+        onkeypress="return /[A-Za-z]/i.test(event.key)"><br />
 
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" maxlenghth="25"><br />
+
+        <label for="email">Email address:</label><br>
+        <input type="email" id="email" name="email"><br />
+
+        <fieldset>
+        <legend>Address</legend>
+          <div>
+            <label for="sadd">Street address</label><br>
+            <input type="text" id="sadd" name="sadd" maxlenght="40">
+          </div>
+          
+          <div>
+            <label for="st">Suburb/town</label><br>
+            <input type="text" id="st" name="st" maxlenght="20">
+          </div>
+
+          <div>
+            <p>State</p>
+            <input type="radio" name="VIC" id="VIC" value="VIC">
+            <label for="VIC">VIC</label><br>
+
+            <input type="radio" name="NSW" id="NSW" value="NSW">
+            <label for="NSW">NSW</label><br>
+
+            <input type="radio" name="QLD" id="QLD" value="QLD">
+            <label for="QLD">QLD</label><br>
+
+            <input type="radio" name="NT" id="NT" value="NT">
+            <label for="NT">NT</label><br>
+
+            <input type="radio" name="WA" id="WA" value="WA">
+            <label for="WA">WA</label><br>
+
+            <input type="radio" name="SA" id="SA" value="SA">
+            <label for="SA">SA</label><br>
+
+            <input type="radio" name="TAS" id="TAS" value="TAS">
+            <label for="TAS">TAS</label><br>
+
+            <input type="radio" name="ACT" id="ACT" value="ACT">
+            <label for="ACT">ACT</label><br>
+          </div>
+
+          <div>
+            <label for="pc">Postcode</label>
+            <input type="text" id="pc" name="pc" maxlength="4">
+          </div>
+
+        <label for="phone">Phone number</label><br>
+        <input type="text" id="phone" name="phone" minlength="10" maxlength="10"
+        placeholder="1234-567-890"
+        pattern="[0]{1}[0-9]{9}">
+
+        <p>Preferred contact:</p>
+        <div>
+            <input type="radio" name="e" id="e" value="e">
+            <label for="e">email</label><br>
+        </div>
+
+        <div>
+            <input type="radio" name="p" id="p" value="p">
+            <label for="p">post</label><br>
+        </div>
+
+        <div>
+            <input type="radio" name="ph" id="ph" value="ph">
+            <label for="ph">phone</label><br>
+        </div>
+
+        <p>Product</p>
+
+        <p>Product features</p>
+
+        <p><label for="cfeild">Comment feild</label></p>
+        <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</html>
