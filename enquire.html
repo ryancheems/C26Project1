@@ -17,7 +17,7 @@
         <input type="text" id="lname" name="lname" maxlenghth="25"><br />
 
         <label for="email">Email address:</label><br>
-        <input type="email" id="email" name="email"><br />
+        <input type="email" id="email" name="email" required="required"><br />
 
         <fieldset>
         <legend>Address</legend>
@@ -64,9 +64,9 @@
           </div>
 
         <label for="phone">Phone number</label><br>
-        <input type="text" id="phone" name="phone" minlength="10" maxlength="10"
-        placeholder="1234-567-890"
-        pattern="[0]{1}[0-9]{9}">
+        <input type="tell" id="phone" name="phone" minlength="10" maxlength="10"
+        placeholder="(##) ####-####"
+        pattern="\(\d{2}\) +\d{4}-\d{4}" >
 
         <p>Preferred contact:</p>
         <div>
@@ -87,7 +87,7 @@
         <p>Product</p>
 
         <p>Product features</p>
-<!--I havent done yet-->
+
         <p><label for="cfeild">Comment feild</label></p>
         <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in"></textarea>
 
