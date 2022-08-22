@@ -8,13 +8,13 @@
     <meta name="author"		 content="Thao Ngan Ngo" />
     <title>Enquire</title>
 <body>
-    <form action="https://mercury.swin.edu.au/it000000/formtest.php">
+    <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
         <label for="fname">First name:</label><br>
         <input type="text" id="'fname" name="fname" maxlength="25"
-        onkeypress="return /[A-Za-z]/i.test(event.key)"><br />
+        onkeypress="return /[A-Za-z]/i.test(event.key)" required="required"><br />
 
         <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" maxlenghth="25"><br />
+        <input type="text" id="lname" name="lname" maxlenghth="25" required="required"><br />
 
         <label for="email">Email address:</label><br>
         <input type="email" id="email" name="email" required="required"><br />
@@ -23,12 +23,12 @@
         <legend>Address</legend>
           <div>
             <label for="sadd">Street address</label><br>
-            <input type="text" id="sadd" name="sadd" maxlenght="40">
+            <input type="text" id="sadd" name="sadd" maxlenght="40" required="required">
           </div>
           
           <div>
             <label for="st">Suburb/town</label><br>
-            <input type="text" id="st" name="st" maxlenght="20">
+            <input type="text" id="st" name="st" maxlenght="20" required="required">
           </div>
 
           <div>
@@ -60,17 +60,17 @@
 
           <div>
             <label for="pc">Postcode</label>
-            <input type="text" id="pc" name="pc" maxlength="4">
+            <input type="text" id="pc" name="pc" maxlength="4" required="required">
           </div>
 
         <label for="phone">Phone number</label><br>
-        <input type="tell" id="phone" name="phone" minlength="10" maxlength="10"
+        <input type="tell" id="phone" name="phone" 
         placeholder="(##) ####-####"
-        pattern="\(\d{2}\) +\d{4}-\d{4}" >
+        pattern="\(\d{2}\) +\d{4}\d{4}" required="required">
 
         <p>Preferred contact:</p>
         <div>
-            <input type="radio" name="e" id="e" value="e">
+            <input type="radio" name="e" id="e" value="e" >
             <label for="e">email</label><br>
         </div>
 
@@ -89,8 +89,9 @@
         <p>Product features</p>
 
         <p><label for="cfeild">Comment feild</label></p>
-        <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in"></textarea><br>
+        <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in" required="required"></textarea><br>
 
         <input type="submit" value="Submit">
+    
     </form>
 </html>
