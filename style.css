@@ -85,7 +85,7 @@ div.a {
 .sliding-background {
   background: url("https://c.tenor.com/wIa91mot0tAAAAAd/pixel-city-chill.gif") repeat-x;
   height: 360px;
-  width: 1920px; /* The image width times 3 */
+  width: 5760px; /* The image width times 3 */
   animation: slide 60s linear infinite;
 
 }
