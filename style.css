@@ -1,17 +1,17 @@
 body {
-  background: #bdffe1;
-  font-family: "Lucida Handwriting";
-  font-size: 40px;
-  color: #f7a1ff;
+  background: WHITE;
+  /* font-family: "Lucida Handwriting"; */
+  color: BLACK;
 }
 div.a {
   text-align: center;
   margin-top: 50px;
+    font-size: 40px;
 }
   /* Navbar container */
 .navbar {
   overflow: hidden;
-  background-color: #00FFBD;
+  background-color: #1f1f1f;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -45,7 +45,7 @@ div.a {
 
 /* Add background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #f7a1ff;
+  background-color: #666666;
 }
 
 /* Dropdown content (hidden by default) */
@@ -76,5 +76,40 @@ div.a {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.sliding-background {
+  background: url("https://c.tenor.com/wIa91mot0tAAAAAd/pixel-city-chill.gif") repeat-x;
+  height: 360px;
+  width: 1920px; /* The image width times 3 */
+  animation: slide 60s linear infinite;
+
+}
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-640px, 0, 0); /* The image width */
+  }
+}
+
+/* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 350%;
 }
 
