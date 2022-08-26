@@ -3,6 +3,9 @@ body {
   /* font-family: "Lucida Handwriting"; */
   color: BLACK;
 }
+.green {
+  color: green;
+}
 div.a {
   text-align: center;
   margin-top: 20px;
