@@ -1,5 +1,5 @@
 body {
-  background: WHITE;
+  background: #ededed;
   /* font-family: "Lucida Handwriting"; */
   color: BLACK;
 }
@@ -84,7 +84,8 @@ div.a {
 
 .sliding-background {
   background: url("https://c.tenor.com/wIa91mot0tAAAAAd/pixel-city-chill.gif") repeat-x;
-  height: 360px;
+  background-size: 60%;
+  height: 720px;
   width: 5760px; /* The image width times 3 */
   animation: slide 60s linear infinite;
 
@@ -110,7 +111,7 @@ div.a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 350%;
+  font-size: 400%;
 }
 
 
