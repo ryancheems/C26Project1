@@ -86,7 +86,7 @@ div.a {
   background: url("https://c.tenor.com/wIa91mot0tAAAAAd/pixel-city-chill.gif") repeat-x;
   background-size: 960px 540px;
   height: 540px;
-  width: 5760px; /* The image width times 3 */
+  width: 5760px; /* The image width times 6 */
   animation: slide 60s linear infinite;
 
 }
@@ -95,7 +95,7 @@ div.a {
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-640px, 0, 0); /* The image width */
+    transform: translate3d(-960px, 0, 0); /* The image width */
   }
 }
 
