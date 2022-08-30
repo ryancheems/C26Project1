@@ -2,6 +2,7 @@
 <html lang="en">
     
 <head>
+    <!-- link rel="stylesheet" href="" -->
     <meta charset="utf-8" />
     <meta name="description" content="Unit of Study Outline" />
     <meta name="keywords" 	 content="HTML, CSS, Javascript" />
@@ -33,34 +34,34 @@
 
           <div>
             <p>State</p>
-            <input type="radio" name="VIC" id="VIC" value="VIC">
+            <input type="radio" name="VIC" id="VIC" value="VIC" checked="checked">
             <label for="VIC">VIC</label><br>
 
-            <input type="radio" name="NSW" id="NSW" value="NSW">
+            <input type="radio" name="VIC" id="NSW" value="NSW">
             <label for="NSW">NSW</label><br>
 
-            <input type="radio" name="QLD" id="QLD" value="QLD">
+            <input type="radio" name="VIC" id="QLD" value="QLD">
             <label for="QLD">QLD</label><br>
 
-            <input type="radio" name="NT" id="NT" value="NT">
+            <input type="radio" name="VIC" id="NT" value="NT">
             <label for="NT">NT</label><br>
 
-            <input type="radio" name="WA" id="WA" value="WA">
+            <input type="radio" name="VIC" id="WA" value="WA">
             <label for="WA">WA</label><br>
 
-            <input type="radio" name="SA" id="SA" value="SA">
+            <input type="radio" name="VIC" id="SA" value="SA">
             <label for="SA">SA</label><br>
 
-            <input type="radio" name="TAS" id="TAS" value="TAS">
+            <input type="radio" name="VIC" id="TAS" value="TAS">
             <label for="TAS">TAS</label><br>
 
-            <input type="radio" name="ACT" id="ACT" value="ACT">
+            <input type="radio" name="VIC" id="ACT" value="ACT">
             <label for="ACT">ACT</label><br>
           </div>
 
           <div>
             <label for="pc">Postcode</label>
-            <input type="text" id="pc" name="pc" maxlength="4" required="required">
+            <input type="text" id="pc" name="pc" pattern="[0-9]{4}" required="required">
           </div>
 
         <label for="phone">Phone number</label><br>
@@ -70,23 +71,35 @@
 
         <p>Preferred contact:</p>
         <div>
-            <input type="radio" name="e" id="e" value="e" >
+            <input type="radio" name="e" id="e" value="e" checked="checked">
             <label for="e">email</label><br>
         </div>
 
         <div>
-            <input type="radio" name="p" id="p" value="p">
+            <input type="radio" name="e" id="p" value="p">
             <label for="p">post</label><br>
         </div>
 
         <div>
-            <input type="radio" name="ph" id="ph" value="ph">
+            <input type="radio" name="e" id="ph" value="ph">
             <label for="ph">phone</label><br>
         </div>
 
-        <p>Product</p>
+        <p><label for="pd">Product</label>
+        <select name="pd" id="pd">
+          <option value="Luxury"  selected="selected">Beetle</option>
+          <option value="Trucks">Low Rider</option>
+          <option value="Vans">Ranger</option>
+        </select>
+        </p>
 
-        <p>Product features</p>
+        <p>Product features
+          <br />
+          <label><input type="checkbox" name="features"
+          value="ori"/>Classic</label>
+          <label><input type="checkbox" name="features"
+          value="roc" checked="checked"/>Rocket</label>
+        </p>
 
         <p><label for="cfeild">Comment feild</label></p>
         <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in" required="required"></textarea><br>
