@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
     
 <head>
@@ -15,10 +15,12 @@
         onkeypress="return /[A-Za-z]/i.test(event.key)" required="required"><br />
 
         <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" maxlenghth="25" required="required"><br />
+        <input type="text" id="lname" name="lname" maxlenghth="25" required="required"
+        onkeypress="return /[A-Za-z]/i.test(event.key)"><br />
 
         <label for="email">Email address:</label><br>
-        <input type="email" id="email" name="email" required="required"><br />
+        <input type="email" id="email" name="email" required="required"
+        var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; ><br />
 
         <fieldset>
         <legend>Address</legend>
@@ -61,13 +63,14 @@
 
           <div>
             <label for="pc">Postcode</label>
-            <input type="text" id="pc" name="pc" pattern="[0-9]{4}" required="required">
+            <input type="text" id="pc" name="pc" pattern="^\d{4}$" required="required"
+            maxlength="4">
           </div>
 
         <label for="phone">Phone number</label><br>
         <input type="tell" id="phone" name="phone" 
         placeholder="(##) ####-####"
-        pattern="\(\d{2}\) +\d{4}\d{4}" required="required">
+        pattern="\(\d{2}\) +\d{4}+-+\d{4}" required="required">
 
         <p>Preferred contact:</p>
         <div>
@@ -96,9 +99,19 @@
         <p>Product features
           <br />
           <label><input type="checkbox" name="features"
-          value="ori"/>Classic</label>
+          value="ori" checked="checked"/>Classic</label>
           <label><input type="checkbox" name="features"
-          value="roc" checked="checked"/>Rocket</label>
+          value="spoiler" />Spoiler</label>
+          <label><input type="checkbox" name="features"
+          value="leg" />Spider Legs</label>
+          <label><input type="checkbox" name="features"
+          value="roc" />Rocket</label>
+          <label><input type="checkbox" name="features"
+          value="o" />Open</label>
+          <label><input type="checkbox" name="features"
+          value="w" />Low Wheel</label>
+          <label><input type="checkbox" name="features"
+          value="pool" />Open Pool</label>
         </p>
 
         <p><label for="cfeild">Comment feild</label></p>
