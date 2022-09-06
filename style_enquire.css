@@ -85,8 +85,6 @@ input[type="file"] {
   margin-bottom:20px;
   
 }
-
-
 legend {
   color: #1bba93;
   font-size: 17px;
@@ -103,8 +101,6 @@ fieldset {
   outline: none;
   padding: 10px
 }
-
-
 .title {
   color: #147a61;
   font-size: 17px;
@@ -129,13 +125,9 @@ fieldset {
 #form-group {
   padding:10px;
 }
-.phai {
-  float: right;
-  
-}
 .ben-phai {
-  float: right;
-  
+  float: center;
+  margin-left: 10px;
 }
 .ben-trai {
   float: left;
