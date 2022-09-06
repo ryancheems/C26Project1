@@ -118,7 +118,7 @@ div.a {
 }
 
 
-/*PRODUCTS*/
+/*PRODUCTS
 .textproducts {
       text-align: center;
       color: #31297e;
@@ -143,6 +143,7 @@ div.a {
     td {
       text-align: center;
     }
+*/
 footer {
   border-top: solid 2px black;
   text-align:center;
