@@ -1,0 +1,105 @@
+/*
+filename: productstyle.css
+author: Ryan Chee
+created: 6/9/22
+last modified: 6/9/22
+description: product.html
+*/
+
+html {
+  background-image: url(background.jpg);
+}
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4vw;
+  font-weight: bold;
+  color: #000;
+}
+h2 {
+  margin-bottom: 0;
+  background: transparent;
+  font-size: 2vw;
+  margin-left: 1vw;
+}
+.slogan {
+  margin-left: 1vw;
+  text-align: left;
+}
+table{
+  margin: none;
+}
+.textproducts {
+  text-align: center;
+  color: black;
+}
+#asideproducts {
+  width: 25%;
+  padding-left: 2rem;
+  margin-left: .5rem;
+  float: right;
+  box-shadow: 5px 5px 5px #aaaaaa;
+  font-style: italic;
+  border: 1px solid red;
+}
+.products{
+  color: #000;
+}
+.tableh1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.8vw;
+  display: inline-block;
+}
+.tableh2 {
+  font-size: 1.3vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+  color: red;
+}
+th, td {
+  background-color: #aaaaaa;
+  padding: 0.625em 3.5em;
+  text-decoration: none;
+  color: #000;
+  border-right: 1px solid #bababa;
+  font-weight: bold;
+}
+th {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000;
+  color: white;
+  font-size: 2vw;
+}
+td {
+  vertical-align: top;
+  text-align: left;
+  font-size: 1.2vw;
+}
+table {
+  table-layout: fixed;
+  float: left;
+}
+.table-text{ 
+  width: 100%;
+  background-color: rgb(253, 253, 253);
+  margin-left: 0;
+  margin-right: 0;
+}
+.responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+ul, ol {
+  float: left;
+  text-align: left;
+  margin-left: 2vw;
+  padding: 0;
+  margin-top: 0px;
+}
+p {
+  margin-bottom: 1vw;
+  margin-left: -10px;
+  margin-right: -10px;
+  font-size: 1.2vw;
+}
