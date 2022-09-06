@@ -1,22 +1,17 @@
 body {background-color: linear-gradient(to right, #78a7ba 0%, #385D6C 50%, #78a7ba 99%);}
  .signup-form {
     font-family: "Roboto", sans-serif;
-    width:650px;
+    
     margin:30px auto;
     background: linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
     border-radius:10px;
  }
- .form-header  {
-  background-color: #EFF0F1;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
- }
+ 
  .form-header h1 {
   font-size: 30px;
   text-align:center;
-  color:#666;
   padding:20px ;
-  border-bottom:1px solid #cccccc;
+  border-bottom:1px solid black;
 }
 
 .form-body {
@@ -51,10 +46,8 @@ body {background-color: linear-gradient(to right, #78a7ba 0%, #385D6C 50%, #78a7
   padding-right: 10px;
   color: #333333;
   text-align: left;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: white;
-  outline: none;
   align-self: center;
 }
 .horizontal-group .left{
@@ -78,8 +71,7 @@ input[type="file"] {
   height: 34px;
   color: #333333;
   text-align: left;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: white;
   outline: none;
   margin-bottom:20px;
@@ -92,11 +84,10 @@ legend {
   margin-bottom:20px;
 }
 fieldset {
-  width: 95%;
+  width: 96%;
   color: #333333;
   text-align: left;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: white;
   outline: none;
   padding: 10px
@@ -115,8 +106,7 @@ fieldset {
   padding-right: 10px;
   color: #333333;
   text-align: left;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: white;
   outline: none;
   align-self: center;
@@ -142,8 +132,7 @@ fieldset {
   box-sizing: border-box;
   width: 20%;
   height: 30px;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: white;
   outline: none;
 }
@@ -152,16 +141,14 @@ fieldset {
   box-sizing: border-box;
   width: 95%;
   height: 100px;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: white;
   outline: none;
 }
 #sm {
   font-size: 17px;
   box-sizing: border-box;
-  border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border: 1px solid black;
   background: #1bba93;
   color: white;
   float: right;
