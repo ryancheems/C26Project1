@@ -144,8 +144,20 @@ div.a {
       text-align: center;
     }
 */
+
+a:link {
+  color: #454545;
+}
+a:hover {
+  color: #f6f6f6;
+}
+a:visited {
+  color: #202020;
+}
 footer {
   border-top: solid 2px black;
   text-align:center;
   clear: both;
+  font-size: 8px;
+  
 }
