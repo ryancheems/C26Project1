@@ -4,16 +4,6 @@ body {
   color: BLACK;
 }
 
-a:link {
-  color: #454545;
-}
-a:hover {
-  color: #999999;
-}
-a:visited {
-  color: #202020;
-}
-
 .green {
   color: green;
 }
@@ -161,5 +151,15 @@ footer {
   text-align:center;
   clear: both;
   font-size: 8px;
+
+  a:link {
+    color: #454545;
+  }
+  a:hover {
+    color: #999999;
+  }
+  a:visited {
+    color: #202020;
+  }
   
 }
