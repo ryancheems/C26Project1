@@ -143,3 +143,8 @@ div.a {
     td {
       text-align: center;
     }
+footer {
+  border-top: solid 2px black;
+  text-align:center;
+  clear: both;
+}
