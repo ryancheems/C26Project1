@@ -86,7 +86,7 @@ div.a {
 }
 
 .sliding-background {
-  background: url("https://c.tenor.com/wIa91mot0tAAAAAd/pixel-city-chill.gif") repeat-x;
+  background: url("styles/images/pixelcity.gif") repeat-x;
   background-size: 960px 540px;
   height: 540px;
   width: 5760px; /* The image width times 6 */
