@@ -3,6 +3,17 @@ body {
   /* font-family: "Lucida Handwriting"; */
   color: BLACK;
 }
+
+a:link {
+  color: #454545;
+}
+a:hover {
+  color: #999999;
+}
+a:visited {
+  color: #202020;
+}
+
 .green {
   color: green;
 }
@@ -145,15 +156,6 @@ div.a {
     }
 */
 
-a:link {
-  color: #454545;
-}
-a:hover {
-  color: #999999;
-}
-a:visited {
-  color: #202020;
-}
 footer {
   border-top: solid 2px black;
   text-align:center;
