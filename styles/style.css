@@ -152,14 +152,14 @@ footer {
   clear: both;
   font-size: 8px;
 
-  a:link {
-    color: #454545;
-  }
-  a:hover {
-    color: #999999;
-  }
-  a:visited {
-    color: #202020;
-  }
-  
+}
+footer a:link{
+      color: #454545;
+    }
+footer a:hover {
+      color: #999999;
+    }
+footer a:visited {
+      color: #202020;
+    }
 }
