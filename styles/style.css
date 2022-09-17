@@ -82,10 +82,13 @@ div.a {
   display: block;
 }
 
+/* Container holding the image and the text */
 .container {
   overflow: hidden;
+  position: relative;
+  text-align: center;
+  color: white;
 }
-
 .sliding-background {
   background: url("styles/images/pixelcity.gif") repeat-x;
   background-size: 960px 540px;
@@ -103,12 +106,7 @@ div.a {
   }
 }
 
-/* Container holding the image and the text */
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
+
 /* Centered text */
 .centered {
   position: absolute;
@@ -119,32 +117,6 @@ div.a {
 }
 
 
-/*PRODUCTS
-.textproducts {
-      text-align: center;
-      color: #31297e;
-    }
-    #asideproducts {
-    width: 25%;
-    padding-left: .5rem;
-    margin-left: .5rem;
-    float: right;
-    box-shadow: inset 5px 0 5px -5px #31297e;
-    font-style: italic;
-    color: #31297e;}
-    .products{
-        color: #31297e;
-    }
-    .table-text{ 
-    width: 100%;
-    background-color: rgb(253, 253, 253);
-    margin-left: auto;
-    margin-right: auto;
-    }
-    td {
-      text-align: center;
-    }
-*/
 
 footer {
   border-top: solid 1px black;
@@ -162,4 +134,7 @@ footer a:hover {
 footer a:visited {
       color: #202020;
     }
+}
+td{
+  text-align:center;
 }
