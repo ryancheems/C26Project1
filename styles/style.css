@@ -93,7 +93,7 @@ div.a {
   color: white;
 }
 .sliding-background {
-  background: url("styles/images/pixelcity.gif") repeat-x;
+  background: url("../styles/images/pixelcity.gif") repeat-x;
   background-size: 960px 540px;
   height: 540px;
   width: 5760px; /* The image width times 6 */
