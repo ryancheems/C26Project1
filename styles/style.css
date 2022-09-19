@@ -1,3 +1,9 @@
+/*
+filename: style.css
+author: H, others
+last modified: 19/9/22
+description: multiple html files
+*/
 body {
   background: #ededed;
   /* font-family: "Lucida Handwriting"; */
@@ -15,6 +21,16 @@ div.a {
   margin-top: 20px;
     font-size: 40px;
 }
+div.a a:link {
+	color: #454545;
+}
+div.a a:hover {
+      color: #999999;
+}
+div.a a:visited {
+      color: #202020;
+}
+
   /* Navbar container */
 .navbar {
   overflow: hidden;
