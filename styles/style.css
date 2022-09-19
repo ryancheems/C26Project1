@@ -119,7 +119,23 @@ div.a {
   font-size: 400%;
 }
 
-
+/* ABOUT US PAGE STYLE*/
+.aboutUsStyle table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+.aboutUsMenu {
+	text-align: center;
+	margin-top: 50px;
+}
+	
+.aboutUsFigure {
+	border: #000000 solid;
+	border: double;
+	padding: 20px;
+	float: right;
+}
 
 footer {
   border-top: solid 1px black;
