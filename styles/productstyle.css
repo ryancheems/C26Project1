@@ -7,7 +7,7 @@ description: product.html
 */
 
 html {
-  background-image: url("styles/images/background.jpg");
+  background-image: url("../styles/images/background.jpg");
 }
 h1 {
   font-family: 'Courier New', Courier, monospace;
