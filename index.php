@@ -9,7 +9,7 @@
     <title> Epic Cool Cars </title>
   </head>
   <body>
- 	<?php include '../includes/header.inc'; ?>
+ 	<?php include 'includes/header.inc'; ?>
     <div class="container">
       <div class="sliding-background"></div>
       <div class="centered">EPIC COOL CARS</div>
@@ -18,7 +18,7 @@
         <p><a href="https://youtu.be/-SIJuPkpETk">Let's get you on the road.</a></p>
         <img src= "images/BeetleNoBackground.png" alt = "car" width ="400" height = "140">
     </div> 
-  <?php include '../includes/footer.inc'; ?>
+  <?php include 'includes/footer.inc'; ?>
   </body>
 </html>
 <!-- IT WORKS! -->
