@@ -11,7 +11,7 @@
   </head>
     
   <body>	  
-
+	<?php include 'includes/header.inc'; ?>
 	  
     <div class="aboutUsMenu">
       <h1>ABOUT US</h1>
