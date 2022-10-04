@@ -9,6 +9,7 @@
   <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>	
+	<?php include 'includes/header.inc'; ?>
    <section class="textproducts">
   <h1>Products list</h1>
   <p><em>Let's Find What You’re Looking For.</em></p>
