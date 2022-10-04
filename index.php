@@ -9,7 +9,7 @@
     <title> Epic Cool Cars </title>
   </head>
   <body>
- 	<?php include 'includes/header.inc'; ?>
+ 	<?php include '/includes/header.inc'; ?>
     <div class="container">
       <div class="sliding-background"></div>
       <div class="centered">EPIC COOL CARS</div>
