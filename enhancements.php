@@ -10,6 +10,7 @@
     <title> Enhancements </title>
   </head>
    <body>
+	<?php include 'includes/header.inc'; ?>
      
 	<p>Here is a description of a couple of enhancements (maximum of two) used in this website.</p>
 	<table>
