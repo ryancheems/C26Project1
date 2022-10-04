@@ -12,7 +12,6 @@
     
   <body>	  
 	<?php include 'includes/header.inc'; ?>
-	<?php include 'includes/footer.inc'; ?>
 	  
     <div class="aboutUsMenu">
       <h1>ABOUT US</h1>
@@ -1844,6 +1843,6 @@
 		<hr>
 	<!--------------------->
   
-
+  <?php include '/includes/footer.inc'; ?>
   </body>
 </html>
