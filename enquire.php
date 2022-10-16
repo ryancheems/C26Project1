@@ -13,7 +13,7 @@
 
      	<?php include 'includes/header.inc'; ?>
 
-    <form class="signup-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+    <form class="signup-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php"  novalidate="novalidate">
         <div class="form-header">
           <h1>Product Enquiry</h1>
         </div>
