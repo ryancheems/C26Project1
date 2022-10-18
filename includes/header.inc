@@ -11,7 +11,7 @@
           <a href="product.php#3">Ranger</a>
         </div>
       </div>
-      <a href="enquire.php">ENQUIRE</a>
+      <a href="payment.php">PAYMENT</a>
       <a href="about.php">ABOUT</a>
       <a href="enhancements.php">ENHANCEMENTS</a>
     </div>
