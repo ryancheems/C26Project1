@@ -5,6 +5,135 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-    
-?>
+    if (isset($_POST["fname"])){
+        $fname = ($_POST["fname"]);
+    }
+	else{
+        header ("location: payment.php");
+        $fname = "";
+    }
+    if (isset($_POST["lname"])){
+        $lname = ($_POST["lname"]);
+    }
+    else{
+        $lname = "";
+    }
+    if (isset($_POST["email"])){
+        $email = ($_POST["email"]);
+    }
+    else{
+        $email = "";
+    }
+    if (isset($_POST["sadd"])){
+        $sadd = ($_POST["sadd"]);
+    }
+    else{
+        $sadd = "";
+    }
+    if (isset($_POST["st"])){
+        $st = ($_POST["st"]);
+    }
+    else{
+        $st = "";
+    }
+    if (isset($_POST["VIC"])){
+        $state = ($_POST["VIC"]);
+    }
+    else{
+        $state = "";
+    }
+    if (isset($_POST["pc"])){
+        $pc = ($_POST["pc"]);
+    }
+    else{
+        $pc = "";
+    }
+    if (isset($_POST["phone"])){
+        $phone = ($_POST["phone"]);
+    }
+    else{
+        $phone = "";
+    }
+    if (isset($_POST["e"])){
+        $contact = ($_POST["e"]);
+    }
+    else{
+        $contact = "";
+    }
+    if (isset($_POST["pd"])){
+        $product = ($_POST["pd"]);
+    }
+    else{
+        $product = "";
+    }
+    $features = "";
+    if (isset($_POST["features"])){
+        $features = ($_POST["features"]);
+    }
+    else{
+        $features = "";
+    }
 
+    if (isset($_POST["cc-number"])){
+        $cnum = ($_POST["cc-number"]);
+    }
+    else{
+        $cnum = "";
+    }
+    if (isset($_POST["cc-name"])){
+        $cname= ($_POST["cc-name"]);
+    }
+    else{
+        $cname = "";
+    }
+    if (isset($_POST["cc-exp"])){
+        $cexp= ($_POST["cc-exp"]);
+    }
+    else{
+        $cexp = "";
+    }
+    if (isset($_POST["cc-csc"])){
+        $ccsc= ($_POST["cc-csc"]);
+    }
+    else{
+        $ccsc = "";
+    }
+    $fname = sanitise_input($fname);
+    $lname = sanitise_input($lname);
+    $email = sanitise_input($email);
+    $sadd = sanitise_input($sadd);
+    $st = sanitise_input($st);
+    $state = sanitise_input($state);
+    $pc = sanitise_input($pc);
+    $phone = sanitise_input($phone);
+    $contact = sanitise_input($contact);
+    $product = sanitise_input($product);
+    $features = sanitise_input($features);
+    $cnum = sanitise_input($cnum);
+    $cname = sanitise_input($cname);
+    $cexp = sanitise_input($cexp);
+    $ccsc = sanitise_input($ccsc);
+
+    $errMsg = "";
+    if ($fname=="") {
+        $errMsg .= "<p>You must enter your first name.</p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/",$fname)) {
+        $errMsg .= "<p>Only alpha letters allowed in first name.</p>";
+    }
+    if ($lname=="") {
+        $errMsg .= "<p>You must enter your last name.</p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/",$lname)) {
+        $errMsg .= "<p>Only alpha letters allowed in last name.</p>";
+    }
+
+    if ($errMsg==""){
+        header ("location: receit.php");
+    }
+    else {
+        header ("location: fix_order.php");
+    }
+
+
+?>
