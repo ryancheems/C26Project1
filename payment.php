@@ -15,7 +15,7 @@
 
     <form class="signup-form" method="post" action="process_order.php"  novalidate="novalidate">
         <div class="form-header">
-          <h1>Product Enquiry</h1>
+          <h1>PAYMENT</h1>
         </div>
 
         <div class="form-body">
@@ -140,7 +140,7 @@
         <p><label class="title" for="cfeild">Comment field</label></p>
         <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in" required="required"></textarea><br>
         <br>
-        <h1>Payment form</h1>
+        <h1>PAYMENT FORM</FORM></h1>
 
         <section>
         <p><label class="title" for="dp">Credit card type</label>
@@ -173,7 +173,7 @@
             <div class="explanation">Back of card, last 3 digits</div>
           </div>
         </section>
-            <input id="sm" type="submit" value="Check out">
+            <input id="sm" type="submit" value="Check out" >
         </form>
         </fieldset>
     
