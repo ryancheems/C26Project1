@@ -13,7 +13,7 @@
 
      	<?php include 'includes/header.inc'; ?>
 
-    <form class="signup-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php"  novalidate="novalidate">
+    <form class="signup-form" method="post" action="https://mercury.swin.edu.au/it000000/process_order.php"  novalidate="novalidate">
         <div class="form-header">
           <h1>Product Enquiry</h1>
         </div>
@@ -141,6 +141,16 @@
         <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in" required="required"></textarea><br>
         <br>
         <h1>Payment form</h1>
+
+        <section>
+        <p><label class="title" for="dp">Credit card type</label>
+        <select name="dp" id="dp">
+          <option value="Visa"  selected="selected">Visa</option>
+          <option value="Mastercard">Mastercard</option>
+          <option value="American Express">American Express</option>
+        </select>
+        </p>
+        </section>
 
         <section>
           <label for="cc-number">Card number</label>
