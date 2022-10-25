@@ -128,10 +128,14 @@
         $errMsg .= "<p>Only alpha letters allowed in last name.</p>";
     }
 
+
     if ($errMsg==""){
         header ("location: receit.php");
     }
     else {
+	session_set_cookie_params(3600);
+	session_start();
+	$_SESSION['error'] = $errMsg;
         header ("location: fix_order.php");
     }
 
