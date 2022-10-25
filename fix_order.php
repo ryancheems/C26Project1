@@ -12,6 +12,9 @@
 <body>
 
      	<?php include 'includes/header.inc'; ?>
+    <?php
+        echo "<p>Hello World</p>";
+    ?>
 
     <form class="signup-form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php"  novalidate="novalidate">
         <div class="form-header">
