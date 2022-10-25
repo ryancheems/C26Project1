@@ -173,7 +173,7 @@
             <div class="explanation">Back of card, last 3 digits</div>
           </div>
         </section>
-            <input id="sm" type="submit" value="Submit">
+            <input id="sm" type="submit" value="Check out">
         </form>
         </fieldset>
     
