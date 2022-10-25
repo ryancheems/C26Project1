@@ -153,22 +153,22 @@
         </section>
 
         <section>
-          <label for="cc-number">Card number</label>
+          <label class="title" for="cc-number">Card number</label>
           <input id="cc-number" name="cc-number" autocomplete="cc-number" inputmode="numeric" pattern="[\d ]{10,30}" required>
         </section>
 
         <section>
-          <label for="cc-name">Name on card</label>
+          <label class="title" for="cc-name">Name on card</label>
           <input id="cc-name" name="cc-name" autocomplete="cc-name" pattern="[\p{L} \-\.]+" required>
         </section>
 
         <section id="cc-exp-csc">
           <div>
-            <label for="cc-exp">Expiry date</label>
+            <label class="title" for="cc-exp">Expiry date</label>
             <input id="cc-exp" name="cc-exp" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" required>
           </div>
           <div>
-            <label for="cc-csc">Security code</label>
+            <label class="title" for="cc-csc">Security code</label>
             <input id="cc-csc" name="cc-csc" autocomplete="cc-csc" inputmode="numeric" maxlength="3" required>
             <div class="explanation">Back of card, last 3 digits</div>
           </div>
