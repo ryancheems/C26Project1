@@ -141,7 +141,10 @@
         <textarea id="cfeild" name="cfield" placeholder="Which specify paticular aspect you are interested in" required="required"></textarea><br>
         <br>
         <h1>PAYMENT FORM</h1>
-
+         <form> 
+          <label for="quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity">
+        </form>
         <section>
         <p><label class="title" for="dp">Credit card type</label>
         <select name="dp" id="dp">
