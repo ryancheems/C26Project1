@@ -319,9 +319,9 @@
                 
                 echo "<div>
                 <p>$error19</p>
-                <label class="title" for="cc-csc">Security code</label>
-                <input id="cc-csc" name="cc-csc" autocomplete="cc-csc" inputmode="numeric" maxlength="3" required>
-                <div class="explanation">Back of card, last 3 digits</div>
+                <label class='title' for='cc-csc'>Security code</label>
+                <input id='cc-csc' name='cc-csc' autocomplete='cc-csc' inputmode='numeric' maxlength='3' required>
+                <div class='explanation'>Back of card, last 3 digits</div>
                 </div>";
               }
               else;
