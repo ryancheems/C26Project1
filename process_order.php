@@ -114,42 +114,91 @@
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
 
-	$errors = array("","","");
+	$errors = array("","","","","","","","","","","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
-	$errors[0] =  "<p>You must enter your first name.</p>";
+	$errors[0] =  "<p>* You must enter your first name.</p>";
     }
     else if (!preg_match("/^[a-zA-Z]*$/",$fname)) {
         $errMsg .= "<p>Only alpha letters allowed in first name.</p>";
-	$errors[0] =  "<p>Only alpha letters allowed in first name.</p>";    
+	$errors[0] =  "<p>* Only alpha letters allowed in first name.</p>";    
     }
     else if (strlen($fname)>25) {
         $errMsg .= "<p>Length of first name must be under 25 letters</p>";
-	$errors[0] =  "<p>Length of first name must be under 25 letters.</p>";    
+	$errors[0] =  "<p>* Length of first name must be under 25 letters.</p>";    
     }
 	
     if ($lname=="") {
         $errMsg .= "<p>You must enter your last name.</p>";
-	$errors[1] =  "<p>You must enter your last name.</p>";    
+	$errors[1] =  "<p>* You must enter your last name.</p>";    
     }
     else if (!preg_match("/^[a-zA-Z]*$/",$lname)) {
         $errMsg .= "<p>Only alpha letters allowed in last name.</p>";
-	$errors[1] =  "<p>Only alpha letters allowed in last name.</p>";     
+	$errors[1] =  "<p>* Only alpha letters allowed in last name.</p>";     
     }
     else if (strlen($lname)>25) {
         $errMsg .= "<p>Length of last name must be under 25 letters</p>";
-	$errors[1] =  "<p>Length of last name must be under 25 letters.</p>";    
+	$errors[1] =  "<p>* Length of last name must be under 25 letters.</p>";    
     }
 
     if ($email=="") {
 	$errMsg .= "<p>Must enter email address<p>";
-	$errors[2] = "<p>Must enter email address<p>";
+	$errors[2] = "<p>* Must enter email address<p>";
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     	$errMsg .= "<p>Invalid email format<p>";
-	  $errors[2] = "<p>Invalid email format<p>";
+	  $errors[2] = "<p>* Invalid email format<p>";
 	}
+    if ($sadd=="") {
+	$errMsg .= "<p>Must enter street address<p>";
+	$errors[3] = "<p>* Must enter street address<p>";
+    }
+    if ($st=="") {
+	$errMsg .= "<p>Must enter suburb/town<p>";
+	$errors[4] = "<p>* Must enter suburb/town<p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/",$st)) {
+        $errMsg .= "<p>Only alpha letters allowed in suburb/town.</p>";
+	$errors[4] =  "<p>* Only alpha letters allowed suburb/town.</p>";     
+    }
+    if ($state=="") {
+	$errMsg .= "<p>Must enter state<p>";
+	$errors[5] = "<p>* Must enter state<p>";
+    }
+    if ($pc=="") {
+	$errMsg .= "<p>Must enter postcode<p>";
+	$errors[6] = "<p>* Must enter postcode<p>";
+    }
+    else if (!preg_match("/^[0-9]*$/",$pc)) {
+        $errMsg .= "<p>Only numbers allowed in postcode.</p>";
+	$errors[6] =  "<p>* Only numbers allowed in postcode.</p>";   
+    }
+    else if (strlen($pc)!=4) {
+        $errMsg .= "<p>Length of postcode should be 4 digits</p>";
+	$errors[6] =  "<p>* Length of postcode should be 4 digits.</p>";    
+    }
+    if ($phone=="") {
+	$errMsg .= "<p>Must enter phone number<p>";
+	$errors[7] = "<p>* Must enter phone number<p>";
+    }
+    else if (!preg_match("/^[0-9]*$/",$phone)) {
+        $errMsg .= "<p>Only numbers allowed in phone number.</p>";
+	$errors[7] =  "<p>* Only numbers allowed in phone number.</p>";   
+    }
+    if ($contact=="") {
+	$errMsg .= "<p>Must select preferred contact<p>";
+	$errors[8] = "<p>* Must select preferred contact<p>";
+    }
+    if ($product=="") {
+	$errMsg .= "<p>Must select product type<p>";
+	$errors[9] = "<p>* Must select product type.<p>";
+    }
+    if ($features=="") {
+	$errMsg .= "<p>Must select features<p>";
+	$errors[10] = "<p>* Must select features.<p>";
+    }
+
 
     if ($errMsg==""){
         header ("location: receit.php");
