@@ -114,20 +114,33 @@
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
 
+	$errors = array("","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
+	$errors[0] =  "<p>You must enter your first name.</p>";
     }
     else if (!preg_match("/^[a-zA-Z]*$/",$fname)) {
         $errMsg .= "<p>Only alpha letters allowed in first name.</p>";
+	$errors[0] =  "<p>Only alpha letters allowed in first name.</p>";    
     }
+    else if (strlen($fname)>25) {
+        $errMsg .= "<p>Length of first name must be under 25 letters</p>";
+	$errors[0] =  "<p>Length of first name must be under 25 letters.</p>";    
+    }
+	
     if ($lname=="") {
         $errMsg .= "<p>You must enter your last name.</p>";
+	$errors[1] =  "<p>You must enter your last name.</p>";    
     }
     else if (!preg_match("/^[a-zA-Z]*$/",$lname)) {
         $errMsg .= "<p>Only alpha letters allowed in last name.</p>";
+	$errors[1] =  "<p>Only alpha letters allowed in last name.</p>";     
     }
-
+    else if (strlen($lname)>25) {
+        $errMsg .= "<p>Length of last name must be under 25 letters</p>";
+	$errors[1] =  "<p>Length of last name must be under 25 letters.</p>";    
+    }
 
     if ($errMsg==""){
         header ("location: receit.php");
@@ -135,7 +148,14 @@
     else {
 	session_set_cookie_params(3600);
 	session_start();
-	$_SESSION['error'] = $errMsg;
+	 $i = 0;
+	while (i<count($errors)){
+		if ($errors[i]!=""){
+			$errNum = i+1;
+			$_SESSION['error'.$errNum] = $errors[i];
+		}
+		i +=1;
+	 } 
         header ("location: fix_order.php");
     }
 
