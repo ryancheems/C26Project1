@@ -114,7 +114,7 @@
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
 
-	$errors = array("","");
+	$errors = array("","","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
@@ -141,6 +141,15 @@
         $errMsg .= "<p>Length of last name must be under 25 letters</p>";
 	$errors[1] =  "<p>Length of last name must be under 25 letters.</p>";    
     }
+
+    if ($email=="") {
+	$errMsg .= "<p>Must enter email address<p>";
+	$errors[2] = "<p>Must enter email address<p>";
+    }
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    	$errMsg .= "<p>Invalid email format<p>";
+	  $errors[2] = "<p>Invalid email format<p>";
+	}
 
     if ($errMsg==""){
         header ("location: receit.php");
