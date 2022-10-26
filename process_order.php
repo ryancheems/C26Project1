@@ -207,12 +207,12 @@
 	session_set_cookie_params(3600);
 	session_start();
 	 $i = 0;
-	while (i<count($errors)){
-		if ($errors[i]!=""){
-			$errNum = i+1;
-			$_SESSION['error'.$errNum] = $errors[i];
+	while ($i<count($errors)){
+		if ($errors[$i]!=""){
+			$errNum = $i+1;
+			$_SESSION['error'.$errNum] = $errors[$i];
 		}
-		i +=1;
+		$i +=1;
 	 } 
         header ("location: fix_order.php");
     }
