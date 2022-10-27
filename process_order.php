@@ -73,7 +73,12 @@
     else{
         $features = "";
     }
-
+    if (isset($_POST["dp"])){
+        $ctype = ($_POST["dp"]);
+    }
+    else{
+        $ctype = "";
+    }
     if (isset($_POST["cc-number"])){
         $cnum = ($_POST["cc-number"]);
     }
@@ -109,12 +114,13 @@
     $contact = sanitise_input($contact);
     $product = sanitise_input($product);
     $features = sanitise_input($features);
+    $ctype = sanitise_input($ctype);
     $cnum = sanitise_input($cnum);
     $cname = sanitise_input($cname);
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
 
-	$errors = array("","","","","","","","","","","");
+	$errors = array("","","","","","","","","","","","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
@@ -198,6 +204,49 @@
 	$errMsg .= "<p>Must select features<p>";
 	$errors[10] = "<p>* Must select features.<p>";
     }
+    if ($ctype=="") {
+	$errMsg .= "<p>Must select card type<p>";
+	$errors[11] = "<p>* Must select card type.<p>";
+    }
+	else{
+		if ($cnum==""){
+			$errMsg .= "<p>Must enter card number<p>";
+			$errors[12] = "<p>* Must enter card number.<p>";
+		}
+		else {
+			if ($ctype=="Visa"){
+				if (strlen($cnum)!= 16){
+					$errMsg .= "<p>Visa card should be 16 digits<p>";
+					$errors[12] = "<p>* Visa card should be 16 digits.<p>";
+				}
+				else if ($cnum[0] != 4){
+					$errMsg .= "<p>Visa card should start with 4<p>";
+					$errors[12] = "<p>* Visa card should start with 4.<p>";
+				}
+
+			}
+			else if ($ctype=="Mastercard"){
+				if (strlen($cnum)!= 16){
+					$errMsg .= "<p>Mastercard card should be 16 digits<p>";
+					$errors[12] = "<p>* Mastercard card should be 16 digits.<p>";
+				}
+				else if ($cnum[0].$cnum[1] >= 51 && $cnum[0].$cnum[1] <= 55){
+					$errMsg .= "<p>Mastercard card should start with 51-55<p>";
+					$errors[12] = "<p>* Mastercard card should start with 51-55.<p>";
+				}
+			}
+			else if ($ctype=="American Express"){
+				if (strlen($cnum)!= 15){
+					$errMsg .= "<p>American Express card should be 15 digits<p>";
+					$errors[12] = "<p>* American Express card should be 15 digits.<p>";
+				}
+				else if ($cnum[0].$cnum[1] == 34 || $cnum[0].$cnum[1] == 37){
+					$errMsg .= "<p>American Express card should start with 34 or 37<p>";
+					$errors[12] = "<p>* American Express card should start with 34 or 37.<p>";
+				}
+			}
+		}
+	}
 	session_start();
 	$_SESSION = array();
 	session_destroy();
