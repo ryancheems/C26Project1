@@ -10,5 +10,6 @@
     <title>Enquire</title>
 </head>
 <body>
-
-     	<?php include 'includes/header.inc'; ?>
+    	<?php include 'includes/header.inc'; ?>
+    
+        <?php include 'includes/footer.inc'; ?>
