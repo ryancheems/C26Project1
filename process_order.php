@@ -251,6 +251,37 @@
 	$_SESSION = array();
 	session_destroy();
     if ($errMsg==""){
+	     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
+    if (!$conn) {
+        // Displays an error message
+        echo "<p>Database connection failure</p>";
+    } else {
+        $query = "CREATE TABLE IF NOT EXISTS Order (
+            Order_id INT AUTO_INCREMENT PRIMARY KEY,
+            fname TEXT(255)
+            lname TEXT()
+            email VARCHAR()
+            address VARCHAR()
+            phone INT()
+            contact VARCHAR()
+            product VARCHAR()
+            features VARCHAR()
+            )";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            $insert_query = "INSERT INTO Order ( fname, lname, email, address, phone, contact, product, features)
+                VALUES ( '$fname', '$lname', '$email', '$address', '$phone', '$contact', '$product', '$features')";
+            $insert_result = mysqli_query($conn, $insert_query);
+            if ($insert_result) {
+                echo "<p>Insert successful.</p>"; }
+            else {
+                echo "<p>insert not successfull.</p>";}
+        }
+        else {
+            echo "<p>Create table unsuccessful.</p>";
+        }
+        mysqli_close($conn);
         header ("location: receipt.php");
     }
     else {
