@@ -276,7 +276,7 @@
 		$result = mysqli_query($conn, $query);
 
 		if ($result) {
-		    $insert_query = "INSERT INTO `orders` ( fname, lname, email, address, phone, contact, product, features)
+		    $insert_query = "INSERT INTO `orders` ( fname, lname, email, address, surburb, state, postcode, phone, contact, product, features)
 			VALUES ( '$fname', '$lname', '$email', '$address', '$phone', '$contact', '$product', '$features')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
