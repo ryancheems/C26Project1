@@ -252,53 +252,57 @@
 	session_destroy();
     if ($errMsg==""){
 	     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
-    if (!$conn) {
-        // Displays an error message
-        echo "<p>Database connection failure</p>";
-    } else {
-        $query = "CREATE TABLE IF NOT EXISTS Order (
-            Order_id INT AUTO_INCREMENT PRIMARY KEY,
-            fname TEXT(255)
-            lname TEXT()
-            email VARCHAR()
-            address VARCHAR()
-            phone INT()
-            contact VARCHAR()
-            product VARCHAR()
-            features VARCHAR()
-            )";
-        $result = mysqli_query($conn, $query);
+	    if (!$conn) {
+		// Displays an error message
+		echo "<p>Database connection failure</p>";
+	    } 
+	    else {
+		$query = "CREATE TABLE IF NOT EXISTS Order (
+		    Order_id INT AUTO_INCREMENT PRIMARY KEY,
+		    fname TEXT(255)
+		    lname TEXT()
+		    email VARCHAR()
+		    address VARCHAR()
+		    phone INT()
+		    contact VARCHAR()
+		    product VARCHAR()
+		    features VARCHAR()
+		    )";
+		$result = mysqli_query($conn, $query);
 
-        if ($result) {
-            $insert_query = "INSERT INTO Order ( fname, lname, email, address, phone, contact, product, features)
-                VALUES ( '$fname', '$lname', '$email', '$address', '$phone', '$contact', '$product', '$features')";
-            $insert_result = mysqli_query($conn, $insert_query);
-            if ($insert_result) {
-                echo "<p>Insert successful.</p>"; }
-            else {
-                echo "<p>insert not successfull.</p>";}
-        }
-        else {
-            echo "<p>Create table unsuccessful.</p>";
-        }
-        mysqli_close($conn);
-	    
-	  session_set_cookie_params(3600);
-	 session_start();
-	$_SESSION['fname'] = $fname;
-          $_SESSION['lname'] = $lname;
-          $_SESSION['email'] = $email;
-          $_SESSION['address'] = $sadd;
-          $_SESSION['suburb'] = $st;
-          $_SESSION['state'] = $state;
-          $_SESSION['postcode'] = $pc;
-          $_SESSION['phone'] = $phone;
-          $_SESSION['contact'] = $contact;
-          $_SESSION['product'] = $product;
-          $_SESSION['features'] = $features;
-	  $_SESSION['ctype'] = $ctype;
-          $_SESSION['cnum'] = $cnum;
-        header ("location: receipt.php");
+		if ($result) {
+		    $insert_query = "INSERT INTO Order ( fname, lname, email, address, phone, contact, product, features)
+			VALUES ( '$fname', '$lname', '$email', '$address', '$phone', '$contact', '$product', '$features')";
+		    $insert_result = mysqli_query($conn, $insert_query);
+		    if ($insert_result) {
+			echo "<p>Insert successful.</p>"; 
+		    }
+		    else {
+			echo "<p>insert not successfull.</p>";
+		    }
+		}
+		else {
+		    echo "<p>Create table unsuccessful.</p>";
+		}
+		mysqli_close($conn);
+	    }
+
+		  session_set_cookie_params(3600);
+		 session_start();
+		$_SESSION['fname'] = $fname;
+		  $_SESSION['lname'] = $lname;
+		  $_SESSION['email'] = $email;
+		  $_SESSION['address'] = $sadd;
+		  $_SESSION['suburb'] = $st;
+		  $_SESSION['state'] = $state;
+		  $_SESSION['postcode'] = $pc;
+		  $_SESSION['phone'] = $phone;
+		  $_SESSION['contact'] = $contact;
+		  $_SESSION['product'] = $product;
+		  $_SESSION['features'] = $features;
+		  $_SESSION['ctype'] = $ctype;
+		  $_SESSION['cnum'] = $cnum;
+		header ("location: receipt.php");
     }
     else {
 	session_set_cookie_params(3600);
