@@ -18,23 +18,25 @@ echo "<table border = '1'>";
     if ($conn) {
         $query = "SELECT TOP 1 * FROM Orders ORDER BY Order_ID DESC LIMIT 1";
         $queryResult = mysqli_query($conn, $query);
-        $row = mysqli_fetch_row($queryResult);
-        while ($row){
-            echo "<tr><td>($row[0])</td>";
-            echo "<td>($row[1])</td>";
-            echo "<td>($row[2])</td>";
-            echo "<td>($row[4])</td>";
-            echo "<td>($row[5])</td>";
-            echo "<td>($row[6])</td>";
-            echo "<td>($row[7])</td>";
-            echo "<td>($row[8])</td>";
-            echo "<td>($row[9])</td>";
-            echo "<td>($row[10])</td>";
-            echo "<td>($row[11])</td>";
-            echo "<td>($row[12])</td></tr>";
+        if ($queryResult){
             $row = mysqli_fetch_row($queryResult);
+            while ($row){
+                echo "<tr><td>($row[0])</td>";
+                echo "<td>($row[1])</td>";
+                echo "<td>($row[2])</td>";
+                echo "<td>($row[4])</td>";
+                echo "<td>($row[5])</td>";
+                echo "<td>($row[6])</td>";
+                echo "<td>($row[7])</td>";
+                echo "<td>($row[8])</td>";
+                echo "<td>($row[9])</td>";
+                echo "<td>($row[10])</td>";
+                echo "<td>($row[11])</td>";
+                echo "<td>($row[12])</td></tr>";
+                $row = mysqli_fetch_row($queryResult);
+            }
+            echo "</table>";
         }
-        echo "</table>";
     }
 
 
