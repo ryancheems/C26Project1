@@ -16,23 +16,23 @@ echo "<table border = '1'>";
     require_once "settings.php";
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if ($conn) {
-        $query = "SELECT * FROM `order` ORDER BY Order_id DESC LIMIT 1";
+        $query = "SELECT * FROM `orders` ORDER BY order_id DESC LIMIT 1";
         $queryResult = mysqli_query($conn, $query);
         if ($queryResult){
             $row = mysqli_fetch_row($queryResult);
             while ($row){
-                echo "<tr><td>($row[0])</td>";
-                echo "<td>($row[1])</td>";
-                echo "<td>($row[2])</td>";
-                echo "<td>($row[4])</td>";
-                echo "<td>($row[5])</td>";
-                echo "<td>($row[6])</td>";
-                echo "<td>($row[7])</td>";
-                echo "<td>($row[8])</td>";
-                echo "<td>($row[9])</td>";
-                echo "<td>($row[10])</td>";
-                echo "<td>($row[11])</td>";
-                echo "<td>($row[12])</td></tr>";
+                echo "<tr><td>$row[0]</td>";
+                echo "<td>$row[1]</td>";
+                echo "<td>$row[2]</td>";
+                echo "<td>$row[4]</td>";
+                echo "<td>$row[5]</td>";
+                echo "<td>$row[6]</td>";
+                echo "<td>$row[7]</td>";
+                echo "<td>$row[8]</td>";
+                echo "<td>$row[9]</td>";
+                echo "<td>$row[10]</td>";
+                echo "<td>$row[11]</td>";
+                echo "<td>$row[12]</td></tr>";
                 $row = mysqli_fetch_row($queryResult);
             }
             echo "</table>";
