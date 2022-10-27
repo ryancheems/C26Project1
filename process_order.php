@@ -201,14 +201,14 @@
 
 
     if ($errMsg==""){
-        header ("location: receit.php");
+        header ("location: receipt.php");
     }
     else {
 	session_set_cookie_params(3600);
 	session_start();
 	 $i = 0;
 	while ($i<count($errors)){
-		if ($errors[$i]!=""){
+		if ($errors[$i] != ""){
 			$errNum = $i+1;
 			$_SESSION['error'.$errNum] = $errors[$i];
 		}
