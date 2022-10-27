@@ -251,6 +251,7 @@
 	$_SESSION = array();
 	session_destroy();
     if ($errMsg==""){
+	    require_once "settings.php";
 	     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
 	    if (!$conn) {
 		// Displays an error message
