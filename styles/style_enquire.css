@@ -150,3 +150,6 @@ fieldset {
   float: right;
   margin-left: 20px;
 }
+.red {
+  color: #ff0000;
+}
