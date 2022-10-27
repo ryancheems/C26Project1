@@ -23,6 +23,8 @@
     $features = $_SESSION['features'];
     $ctype = $_SESSION['ctype'];
     $cnum = $_SESSION['cnum'];
+    $cexp = $_SESSION['cexp'];
+    $ccsc = $_SESSION['ccsc'];
 
     echo ("<p>Your name is $fname $lname</p>");
     echo ("<p>Your email is $email</p>");
