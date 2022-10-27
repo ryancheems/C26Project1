@@ -9,35 +9,34 @@
 <body>
 <h1>Receipt</h1>
 <?php
-    session_start();
-    $fname =  $_SESSION['fname'];
-    $lname = $_SESSION['lname'] ;
-    $email = $_SESSION['email'] ;
-    $sadd = $_SESSION['address'];
-    $st = $_SESSION['suburb'] ;
-    $state = $_SESSION['state'];
-    $pc = $_SESSION['postcode'];
-    $phone = $_SESSION['phone'];
-    $contact = $_SESSION['contact'];
-    $product = $_SESSION['product'];
-    $features = $_SESSION['features'];
-    $ctype = $_SESSION['ctype'];
-    $cnum = $_SESSION['cnum'];
-    $cexp = $_SESSION['cexp'];
-    $ccsc = $_SESSION['ccsc'];
+echo "<table border = '1'>";
+    echo "<tr><th>Order ID</th><th>Order Status</th><th>First Name</th><th>Last Name</th>
+    <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
+    <th>Product</th><th>Features</th></tr>"
+    require_once "settings.php";
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    if ($conn) {
+        $query = "SELECT TOP 1 * FROM Orders ORDER BY Order_ID DESC LIMIT 1";
+        $queryResult = ($conn, $query)
+        $row = mysqli_fetch_row($queryResult);
+        while ($row){
+            echo "<tr><td>($row[0])</td>";
+            echo "<td>($row[1])</td>";
+            echo "<td>($row[2])</td>";
+            echo "<td>($row[4])</td>";
+            echo "<td>($row[5])</td>";
+            echo "<td>($row[6])</td>";
+            echo "<td>($row[7])</td>";
+            echo "<td>($row[8])</td>";
+            echo "<td>($row[9])</td>";
+            echo "<td>($row[10])</td>";
+            echo "<td>($row[11])</td>";
+            echo "<td>($row[12])</td></tr>";
+            $row = mysqli_fetch_row($queryResult);
+        }
+        echo "</table>"
+    }
 
-    echo ("<p>Your name is $fname $lname</p>");
-    echo ("<p>Your email is $email</p>");
-    echo ("<p> Address: $add, $st, $state, $pc</p>");
-    echo ("<p>Phone number: $phone</p>");
-    echo ("<p>Preferred contact: $contact</p>");
-    echo ("<p>The product you want to order: $product</p>");
-    echo ("<p>Product features: $features</p>");
-    echo ("<p>$ctype</p>");
-    echo ("<p>$cnum</p>");
-    echo ("<p>$cname</p>");
-    echo ("<p>$cexp</p>");
-    echo ("<p>$ccsc</p>");
 
 ?>
 </body>
