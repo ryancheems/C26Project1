@@ -16,7 +16,7 @@ echo "<table border = '1'>";
     require_once "settings.php";
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if ($conn) {
-        $query = "SELECT * FROM order ORDER BY Order_id DESC LIMIT 1";
+        $query = "SELECT * FROM `order` ORDER BY Order_id DESC LIMIT 1";
         $queryResult = mysqli_query($conn, $query);
         if ($queryResult){
             $row = mysqli_fetch_row($queryResult);
