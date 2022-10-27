@@ -17,7 +17,7 @@ echo "<table border = '1'>";
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if ($conn) {
         $query = "SELECT TOP 1 * FROM Orders ORDER BY Order_ID DESC LIMIT 1";
-        $queryResult = ($conn, $query)
+        $queryResult = ($conn, $query);
         $row = mysqli_fetch_row($queryResult);
         while ($row){
             echo "<tr><td>($row[0])</td>";
@@ -34,7 +34,7 @@ echo "<table border = '1'>";
             echo "<td>($row[12])</td></tr>";
             $row = mysqli_fetch_row($queryResult);
         }
-        echo "</table>"
+        echo "</table>";
     }
 
 
