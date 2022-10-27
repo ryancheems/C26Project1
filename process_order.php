@@ -198,8 +198,9 @@
 	$errMsg .= "<p>Must select features<p>";
 	$errors[10] = "<p>* Must select features.<p>";
     }
-
-
+	session_start();
+	$_SESSION = array();
+	session_destroy();
     if ($errMsg==""){
         header ("location: receipt.php");
     }
