@@ -14,4 +14,6 @@
       <a href="payment.php">PAYMENT</a>
       <a href="about.php">ABOUT</a>
       <a href="enhancements.php">ENHANCEMENTS</a>
+      <a href="Management.php">MANAGEMENT</a>
     </div>
+      
