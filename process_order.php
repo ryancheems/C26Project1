@@ -282,6 +282,22 @@
             echo "<p>Create table unsuccessful.</p>";
         }
         mysqli_close($conn);
+	    
+	  session_set_cookie_params(3600);
+	 session_start();
+	$_SESSION['fname'] = $fname;
+          $_SESSION['lname'] = $lname;
+          $_SESSION['email'] = $email;
+          $_SESSION['address'] = $sadd;
+          $_SESSION['suburb'] = $st;
+          $_SESSION['state'] = $state;
+          $_SESSION['postcode'] = $pc;
+          $_SESSION['phone'] = $phone;
+          $_SESSION['contact'] = $contact;
+          $_SESSION['product'] = $product;
+          $_SESSION['features'] = $features;
+	  $_SESSION['ctype'] = $ctype;
+          $_SESSION['cnum'] = $cnum;
         header ("location: receipt.php");
     }
     else {
