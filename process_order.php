@@ -258,8 +258,9 @@
 		echo "<p>Database connection failure</p>";
 	    } 
 	    else {
-		$query = "CREATE TABLE IF NOT EXISTS `order` (
-		    Order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		$query = "CREATE TABLE IF NOT EXISTS `orders` (
+		    order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		    order_status VARCHAR(40) NOT NULL ,
 		    fname VARCHAR(25) NOT NULL,
 		    lname VARCHAR(25) NOT NULL,
 		    email VARCHAR(40) NOT NULL,
@@ -272,7 +273,7 @@
 		$result = mysqli_query($conn, $query);
 
 		if ($result) {
-		    $insert_query = "INSERT INTO `order` ( fname, lname, email, address, phone, contact, product, features)
+		    $insert_query = "INSERT INTO `orders` ( fname, lname, email, address, phone, contact, product, features)
 			VALUES ( '$fname', '$lname', '$email', '$address', '$phone', '$contact', '$product', '$features')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
