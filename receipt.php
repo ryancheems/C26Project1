@@ -38,6 +38,9 @@ echo "<table border = '1'>";
             echo "</table>";
         }
     }
+    else{
+        echo "<p>ERROR</p>";
+    }
 
 
 ?>
