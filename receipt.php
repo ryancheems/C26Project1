@@ -12,7 +12,7 @@
 echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>First Name</th><th>Last Name</th>
     <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
-    <th>Product</th><th>Features</th></tr>"
+    <th>Product</th><th>Features</th></tr>";
     require_once "settings.php";
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if ($conn) {
