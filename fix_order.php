@@ -231,10 +231,20 @@
 
         <br>
         <h1>PAYMENT FORM</h1>
-        <form> 
-          <label for="quantity">Quantity</label>
-          <input type="number" id="quantity" name="quantity">
-        </form>
+        
+        <?php
+              if (isset($_SESSION['error17'])){
+                $error17 = $_SESSION['error17'];
+                
+                echo "<form> 
+                  <label for='quantity'>Quantity</label>
+                  <input type='number' id='quantity' name='quantity'>
+                  </form>
+                <p>$error17</p>";
+              }
+              else;
+          ?>
+        
         <?php
               if (isset($_SESSION['error12'])){
                 $error12 = $_SESSION['error12'];
