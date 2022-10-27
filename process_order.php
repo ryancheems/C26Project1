@@ -240,7 +240,7 @@
 					$errMsg .= "<p>American Express card should be 15 digits<p>";
 					$errors[12] = "<p>* American Express card should be 15 digits.<p>";
 				}
-				else if ($cnum[0].$cnum[1] == 34 || $cnum[0].$cnum[1] == 37){
+				else if (substr($cnum, 0, 2) == 34 || substr($cnum, 0, 2) == 37){
 					$errMsg .= "<p>American Express card should start with 34 or 37<p>";
 					$errors[12] = "<p>* American Express card should start with 34 or 37.<p>";
 				}
