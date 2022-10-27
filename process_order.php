@@ -277,7 +277,7 @@
 
 		if ($result) {
 		    $insert_query = "INSERT INTO `orders` ( fname, lname, email, address, surburb, state, postcode, phone, contact, product, features)
-			VALUES ( '$fname', '$lname', '$email', '$address', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features')";
+			VALUES ( '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
 			echo "<p>Insert successful.</p>"; 
