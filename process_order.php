@@ -211,7 +211,8 @@
 	while ($i<count($errors)){
 		if ($errors[$i] != ""){
 			$errNum = $i+1;
-			$_SESSION['error'.$errNum] = "<p><span class = 'red'>".$errors[$i]."</span></p>";
+			$err = "<section class = 'red'>".$errors[$i]."</section>";
+			$_SESSION['error'.$errNum] = $err;
 		}
 		$i +=1;
 	 } 
