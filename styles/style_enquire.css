@@ -151,3 +151,13 @@ fieldset {
 .red {
   color: #ff0000;
 }
+.ben-trai{
+  display: inline-flex;
+}
+.ben-phai{
+  display: inline-flex;
+}
+.radio{
+  display: inline-flex;
+}
+
