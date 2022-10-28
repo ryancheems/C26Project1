@@ -248,7 +248,7 @@
 	$errMsg .= "<p>Must select product type<p>";
 	$errors[9] = "<p>* Must select product type.<p>";
     }
-    if ($_SESSION[features]=="") {
+    if ($features=="") {
 	$errMsg .= "<p>Must select features<p>";
 	$errors[10] = "<p>* Must select features.<p>";
     }
@@ -295,8 +295,42 @@
 			}
 		}
 	}
-
-	
+    if ($cname=="") {
+	$errMsg .= "<p>Must enter card name<p>";
+	$errors[13] = "<p>* Must enter card name.<p>";
+    }
+    else if (!preg_match("/^[a-zA-Z]*$/",$cname)) {
+        $errMsg .= "<p>Only alpha letters allowed in card name.</p>";
+	$errors[13] =  "<p>* Only alpha letters allowed in card name.</p>";    
+    }
+    if ($cexp=="") {
+	$errMsg .= "<p>Must enter card expiry date<p>";
+	$errors[14] = "<p>* Must enter card expiry date.<p>";
+    }
+    else if (!preg_match("/^(0[1-9]|1[0-2])\/\d{2}$/",$cexp)) {
+        $errMsg .= "<p>Card Expiry must be in MM / YY Format.</p>";
+	$errors[14] =  "<p>* Card Expiry must be in MM / YY Format.</p>";    
+    }
+    if ($ccsc=="") {
+	$errMsg .= "<p>Must enter CVV<p>";
+	$errors[15] = "<p>* Must enter enter CVV<p>";
+    }
+    else if (!preg_match("/^[0-9]*$/",$ccsc)) {
+        $errMsg .= "<p>Only numbers allowed in CVV.</p>";
+	$errors[15] =  "<p>* Only numbers allowed in CVV.</p>";   
+    }
+    else if (strlen($ccsc)!=4) {
+        $errMsg .= "<p>Length of CVV should be 3 digits</p>";
+	$errors[15] =  "<p>* Length of CVV should be 3 digits.</p>";    
+    }
+    if ($quantity=="") {
+	$errMsg .= "<p>Must enter quantity<p>";
+	$errors[16] = "<p>* Must enter enter quantity<p>";
+    }
+    else if (!preg_match("/^[0-9]*$/",$quantiy)) {
+        $errMsg .= "<p>Quantity must be a number.</p>";
+	$errors[16] =  "<p>* Quantity must be a number.</p>";   
+    }
 
     if ($errMsg==""){
 	    require_once "settings.php";
