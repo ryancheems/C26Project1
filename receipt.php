@@ -12,7 +12,8 @@
 echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>First Name</th><th>Last Name</th>
     <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
-    <th>Product</th><th>Features</th></tr>";
+    <th>Product</th><th>Features</th><th>Card Type</th><th>Card Number</th><th>Card Name</th><th>Card Expiry Date</th><th>Card CSC</th><th>Quantity</th>
+    <th>Cost</th></tr>";
     require_once "settings.php";
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if ($conn) {
@@ -33,7 +34,14 @@ echo "<table border = '1'>";
                 echo "<td>$row[9]</td>";
                 echo "<td>$row[10]</td>";
                 echo "<td>$row[11]</td>";
-                echo "<td>$row[12]</td></tr>";
+                echo "<td>$row[12]</td>";
+                echo "<td>$row[13]</td>";
+                echo "<td>$row[14]</td>";
+                echo "<td>$row[15]</td>";
+                echo "<td>$row[16]</td>";
+                echo "<td>$row[17]</td>";
+                echo "<td>$row[18]</td>";
+                echo "<td>$row[19]</td></tr>";
                 $row = mysqli_fetch_row($queryResult);
             }
             echo "</table>";
