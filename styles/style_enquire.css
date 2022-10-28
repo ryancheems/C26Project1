@@ -35,6 +35,13 @@ body {background-color: linear-gradient(to right, #78a7ba 0%, #385D6C 50%, #78a7
   padding:10px;
   
 }
+#label-email {
+  color: #1bba93;
+  font-size: 17px;
+  font-weight: bold;
+  padding:10px;
+  clear: both;
+}
 .form-body .form-input {
   font-size: 17px;
   box-sizing: border-box;
