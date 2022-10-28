@@ -122,7 +122,7 @@
         <p class="title">Product features</p>
         
           <label><input type="checkbox" name="features"
-          value="ori" checked="checked"/>Classic</label>
+          value="ori" />Classic</label>
           <label><input type="checkbox" name="features"
           value="spoiler" />Spoiler</label>
           <label><input type="checkbox" name="features"
