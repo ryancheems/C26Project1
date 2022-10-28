@@ -255,6 +255,10 @@
     if ($ctype=="") {
 	$errMsg .= "<p>Must select card type<p>";
 	$errors[11] = "<p>* Must select card type.<p>";
+	    	if ($cnum==""){
+			$errMsg .= "<p>Must enter card number<p>";
+			$errors[12] = "<p>* Must enter card number.<p>";
+		}
     }
 	else{
 		if ($cnum==""){
