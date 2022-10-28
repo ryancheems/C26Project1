@@ -15,7 +15,7 @@
     echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>First Name</th><th>Last Name</th>
     <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
-    <th>Product</th><th>Features</th></tr>";
+    <th>Product</th><th>Features</th><th>Quantity</th><th>Cost</th></tr>";
     require_once "settings.php";
     $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
     if ($conn) {
@@ -38,9 +38,11 @@
                 echo "<td>$row[10]</td>";
                 echo "<td>$row[11]</td>";
                 echo "<td>$row[12]</td>";
-                echo "<td><input type='button' id='tbutt' value='Edit'></td>";
+                echo "<td>$row[18]</td>";
+                echo "<td>$row[19]</td>";
+                echo "<td><form method='post'><input type='submit' name='tbutt1' id='tbutt' value='Edit'></form></td>";
                 if (($row[1])=='PENDING'){
-                    echo "<td><input type='button' id='tbutt2' value='Cancel'></td></tr>";
+                    echo "<td><form method='post'><input type='submit' name='tbutt2' id='tbutt2' value='Cancel'></form></td></tr>";
                 }
                     
                 $row = mysqli_fetch_row($queryResult);
@@ -70,6 +72,12 @@
         else if(array_key_exists('button5', $_POST)) {
             button5();
         }
+        else if(array_key_exists('tbutt1', $_POST)) {
+            tbutt1();
+        }
+        else if(array_key_exists('tbutt2', $_POST)) {
+            tbutt2();
+        }
         function button1() {
             $buttonvar = "SELECT * FROM `orders`";
             echo "Selected All";
@@ -78,9 +86,9 @@
             
             echo 
             "<form method='post'>
-                <input type='text' name='bname' id='bname' value='Enter Name'>
+            <input type='text' name='bname' id='bname' value='Enter Name'>
             </form>";
-
+            
         }
         if (isset($_POST["bname"])){
             $bname = ($_POST["bname"]);
@@ -89,7 +97,7 @@
         function button3() {
             echo 
             "<form method='post'>
-                <input type='text' name='bproduct' id='bproduct' value='Enter Product Type'>
+            <input type='text' name='bproduct' id='bproduct' value='Enter Product Type'>
             </form>";
         }
         if (isset($_POST["bproduct"])){
@@ -106,24 +114,34 @@
             $buttonvar = "SELECT * FROM `orders`";
             echo "Price";
         }
-    ?>
+        function tbutt1() {
+            // change this
+            $buttonvar = "SELECT * FROM `orders`";
+            echo "Edit";
+        }
+        function tbutt2() {
+            // change this
+            $buttonvar = "SELECT * FROM `orders`";
+            echo "Cancel";
+        }
+        ?>
     <form method="post">
         <input type="submit" name="button1"
-                class="button" value="Select All" />
-          
+        class="button" value="Select All" />
+        
         <input type="submit" name="button2"
-                class="button" value="Search by Name" />
-
+        class="button" value="Search by Name" />
+        
         <input type="submit" name="button3"
-                class="button" value="Search by Product" />
+        class="button" value="Search by Product" />
         
         <input type="submit" name="button4"
-                class="button" value="Pending Orders" />
+        class="button" value="Pending Orders" />
         
         <input type="submit" name="button5"
-                class="button" value="Sort by Price" />
+        class="button" value="Sort by Price" />
     </form>
-
+    
     <?php include 'includes/footer.inc'; ?>
 </body>
 </html>
