@@ -284,7 +284,7 @@
 					$errMsg .= "<p>Mastercard card should be 16 digits<p>";
 					$errors[12] = "<p>* Mastercard card should be 16 digits.<p>";
 				}
-				else if (substr($cnum, 0, 2) >= 51 && substr($cnum, 0, 2) <= 55){
+				else if !(substr($cnum, 0, 2) >= 51 && substr($cnum, 0, 2) <= 55){
 					$errMsg .= "<p>Mastercard card should start with 51-55<p>";
 					$errors[12] = "<p>* Mastercard card should start with 51-55.<p>";
 				}
@@ -294,7 +294,7 @@
 					$errMsg .= "<p>American Express card should be 15 digits<p>";
 					$errors[12] = "<p>* American Express card should be 15 digits.<p>";
 				}
-				else if (substr($cnum, 0, 2) == 34 || substr($cnum, 0, 2) == 37){
+				else if !(substr($cnum, 0, 2) == 34 || substr($cnum, 0, 2) == 37){
 					$errMsg .= "<p>American Express card should start with 34 or 37<p>";
 					$errors[12] = "<p>* American Express card should start with 34 or 37.<p>";
 				}
