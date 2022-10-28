@@ -369,7 +369,7 @@
 		$result = mysqli_query($conn, $query);
 
 		if ($result) {
-		    $insert_query = "INSERT INTO `orders` (order_status, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, order_cost, cardtype, cardnum, cardname, cardexp, cardcsc, quanity)
+		    $insert_query = "INSERT INTO `orders` (order_status, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, order_cost, cardtype, cardnum, cardname, cardexp, cardcsc, quantity)
 			VALUES ("PENDING", '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$totalcost', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
@@ -400,6 +400,9 @@
 		  $_SESSION['features'] = $features;
 		  $_SESSION['ctype'] = $ctype;
 		  $_SESSION['cnum'] = $cnum;
+	    	  $_SESSION['cname'] = $cname;
+	    	  $_SESSION['cexp'] = $cexp;
+	    
 		header ("location: receipt.php");
     }
     else {
