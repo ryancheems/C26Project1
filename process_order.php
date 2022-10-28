@@ -80,7 +80,13 @@
     else{
         $product = "";
     }
-
+    if (isset($_POST["quantity"])){
+        $quantity= ($_POST["quantity"]);
+        $_SESSION['quantity'] = $quantity;
+    }
+    else{
+        $quantity = "";
+    }
     $features = array("0","0","0","0","0","0","0");
     $totalcost = 1000;
     if (!empty($_POST["features"])){
@@ -107,11 +113,18 @@
                 $features[6] = "pool";}
         $_SESSION["features"] = $features;
         $_SESSION["totalcost"] = $totalcost;
+        $totalcost = $totalcost * $quantity;
     }
     else{
         $features = "";
         $_SESSION["totalcost"] = $totalcost;
+        $totalcost = $totalcost * $quantity;
     }
+
+    if (isset($_SESSION['totalcost'])){
+        $realtotalcost = $totalcost * $quantity;
+    }
+
     if (isset($_POST["dp"])){
         $ctype = ($_POST["dp"]);
         $_SESSION["ctype"] = $ctype;
@@ -143,13 +156,7 @@
     else{
         $ccsc = "";
     }
-    if (isset($_POST["quantity"])){
-        $quantity= ($_POST["quantity"]);
-        $_SESSION['quantity'] = $quantity;
-    }
-    else{
-        $quantity = "";
-    }
+
     $fname = sanitise_input($fname);
     $lname = sanitise_input($lname);
     $email = sanitise_input($email);
@@ -358,19 +365,19 @@
 		    contact VARCHAR(40) NOT NULL,
 		    product VARCHAR(40) NOT NULL,
 		    features VARCHAR(40) NOT NULL,
-		    order_cost INT NOT NULL,
 		    cardtype VARCHAR(40) NOT NULL,
 		    cardnum VARCHAR(40) NOT NULL,
 		    cardname VARCHAR(40) NOT NULL,
 		    cardexp VARCHAR(40) NOT NULL,
 		    cardcsc VARCHAR(3) NOT NULL,
-		    quantity VARCHAR(40) NOT NULL
+		    quantity VARCHAR(40) NOT NULL,
+		    order_cost INT NOT NULL
 		    )";
 		$result = mysqli_query($conn, $query);
 
 		if ($result) {
-		    $insert_query = "INSERT INTO `orders` (order_status, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, order_cost, cardtype, cardnum, cardname, cardexp, cardcsc, quantity)
-			VALUES ("PENDING", '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$totalcost', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity')";
+		    $insert_query = "INSERT INTO `orders` (order_status, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, cardtype, cardnum, cardname, cardexp, cardcsc, quantity, order_cost)
+			VALUES ('PENDING', '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity', '$totalcost')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
 			echo "<p>Insert successful.</p>"; 

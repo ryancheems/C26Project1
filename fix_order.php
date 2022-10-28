@@ -274,14 +274,7 @@
           <label for='quantity'>Quantity</label>
           <input type='number' id='quantity' name='quantity' value="<?php echo $_SESSION['quantity'] ?>">
         </form>
-        <?php 
-          if (isset($_SESSION['totalcost'])){
-            $totalcost = $_SESSION['totalcost'];
-            $quantity = $_SESSION['quantity'];
-            $realtotalcost = $totalcost * $quantity;
-            echo "<p>Total Cost: $$realtotalcost</p>";
-          }
-        ?>
+        
         <?php
               if (isset($_SESSION['error17'])){
                 $error17 = $_SESSION['error17'];
@@ -293,8 +286,7 @@
         <section>
                 <p><label class='title' for='dp'>Credit card type</label>
                 <select name='dp' id='dp'>
-                <option value=""  selected="selected"></option>
-                <option value='Visa'>Visa</option>
+                <option value='Visa'  selected='selected'>Visa</option>
                 <option value='Mastercard'>Mastercard</option>
                 <option value='American Express'>American Express</option>
                 </select>
@@ -362,7 +354,9 @@
             <input id="sm" type="submit" value="Check out" >
         </form>
         </fieldset>
-    
+    <?php
+      echo $_SESSION['errMsg'];
+    ?>
     </form>
       <?php include 'includes/footer.inc'; ?>
   </body>
