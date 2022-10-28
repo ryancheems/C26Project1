@@ -36,7 +36,7 @@
         </div>
 
         <div id="form-group">
-          <label id="label-email" class="label-title" for="email">Email address:</label><br>
+          <label id="label-email" class="label-email" for="email">Email address:</label><br>
           <input class="form-input" type="email" id="email" name="email" required="required"
           var email = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/; ><br />
         </div>
