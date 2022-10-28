@@ -168,7 +168,7 @@
     $ccsc = sanitise_input($ccsc);
     $quantity = sanitise_input($quantity);
 
-	$errors = array("","","","","","","","","","","","","");
+	$errors = array("","","","","","","","","","","","","","","","","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
