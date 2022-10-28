@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="description" content="Reciept" />
-<meta name="keywords" content="PHP, MySql" />
-<title>Receipt</title>
+    <link href="styles/style.css" rel="stylesheet"/>   
+    <link href="styles/style_enquire.css" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <meta name="description" content="Manager" />
+    <meta name="keywords" 	 content="PHP, MySql" />
+    <title>Enquire</title>
 </head>
 <body>
-<h1>Receipt</h1>
-<?php
-echo "<table border = '1'>";
+    <?php include 'includes/header.inc'; ?>
+    <?php 
+    $buttonvar = "SELECT * FROM `orders`";
+    echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>First Name</th><th>Last Name</th>
     <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
     <th>Product</th><th>Features</th></tr>";
     require_once "settings.php";
-    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
     if ($conn) {
-        $query = "SELECT * FROM `orders";
+        echo "<p>Connection successful!</p>";
+        $query = $buttonvar;
         $queryResult = mysqli_query($conn, $query);
         if ($queryResult){
             $row = mysqli_fetch_row($queryResult);
@@ -38,12 +42,51 @@ echo "<table border = '1'>";
             }
             echo "</table>";
         }
+        else{
+            echo "<p>No record</p>";
+        }
     }
-    else{
-        echo "<p>ERROR</p>";
-    }
+    ?>
 
 
-?>
+    <?php
+        if(array_key_exists('button1', $_POST)) {
+            button1();
+        }
+        else if(array_key_exists('button2', $_POST)) {
+            button2();
+        }
+        else if(array_key_exists('button3', $_POST)) {
+            button3();
+        }
+        function button1() {
+            $buttonvar = "SELECT * FROM `orders`";
+            echo "Selected All";
+        }
+        function button2() {
+            echo "This is Button2 that is selected";
+        }
+        function button3() {
+            echo "This is Button3 that is selected";
+        }
+    ?>
+    <form method="post">
+        <input type="submit" name="button1"
+                class="button" value="Select All" />
+          
+        <input type="submit" name="button2"
+                class="button" value="Button2" />
+
+        <input type="submit" name="button3"
+                class="button" value="Button3" />
+        
+        <input type="submit" name="button3"
+                class="button" value="Button3" />
+        
+        <input type="submit" name="button3"
+                class="button" value="Button3" />
+    </form>
+        
+    <?php include 'includes/footer.inc'; ?>
 </body>
 </html>
