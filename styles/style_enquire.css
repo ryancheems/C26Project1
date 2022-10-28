@@ -129,15 +129,6 @@ fieldset {
   float: left;
   margin-top: 20px;
 }
-#pd {
-  font-size: 15px;
-  box-sizing: border-box;
-  width: 20%;
-  height: 30px;
-  border: 1px solid black;
-  background: white;
-  outline: none;
-}
 #cfeild {
   font-size: 15px;
   box-sizing: border-box;
