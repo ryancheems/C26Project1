@@ -357,13 +357,20 @@
 		    phone INT NOT NULL,
 		    contact VARCHAR(40) NOT NULL,
 		    product VARCHAR(40) NOT NULL,
-		    features VARCHAR(40) NOT NULL
+		    features VARCHAR(40) NOT NULL,
+		    order_cost INT NOT NULL,
+		    cardtype VARCHAR(40) NOT NULL,
+		    cardnum VARCHAR(40) NOT NULL,
+		    cardname VARCHAR(40) NOT NULL,
+		    cardexp VARCHAR(40) NOT NULL,
+		    cardcsc VARCHAR(3) NOT NULL,
+		    quantity VARCHAR(40) NOT NULL
 		    )";
 		$result = mysqli_query($conn, $query);
 
 		if ($result) {
-		    $insert_query = "INSERT INTO `orders` (order_status, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features)
-			VALUES ("PENDING", '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features')";
+		    $insert_query = "INSERT INTO `orders` (order_status, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, order_cost, cardtype, cardnum, cardname, cardexp, cardcsc, quanity)
+			VALUES ("PENDING", '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$totalcost', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
 			echo "<p>Insert successful.</p>"; 
