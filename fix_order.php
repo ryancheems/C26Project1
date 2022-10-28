@@ -293,6 +293,7 @@
         <section>
                 <p><label class='title' for='dp'>Credit card type</label>
                 <select name='dp' id='dp'>
+                <option value=""  selected="selected"></option>
                 <option value='Visa'  selected='selected'>Visa</option>
                 <option value='Mastercard'>Mastercard</option>
                 <option value='American Express'>American Express</option>
