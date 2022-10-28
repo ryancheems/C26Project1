@@ -82,32 +82,41 @@
     }
 
     $features = array("0","0","0","0","0","0","0");
+    $totalcost = 1000;
     if (!empty($_POST["features"])){
         foreach ($_POST["features"] as $value)
             if ($value == "ori"){
                 $features[0] = "ori";}
         foreach ($_POST["features"] as $value)
             if ($value == "spoiler"){
+                $totalcost += 500;
                 $features[1] = "spoiler";}
         foreach ($_POST["features"] as $value)
             if ($value == "leg"){
+                $totalcost += 1250;
                 $features[2] = "leg";}
         foreach ($_POST["features"] as $value)
             if ($value == "roc"){
+                $totalcost += 1500;
                 $features[3] = "roc";}
         foreach ($_POST["features"] as $value)
             if ($value == "o"){
+                $totalcost += 750;
                 $features[4] = "o";}
         foreach ($_POST["features"] as $value)
             if ($value == "w"){
+                $totalcost += 500;
                 $features[5] = "w";}
         foreach ($_POST["features"] as $value)
             if ($value == "pool"){
+                $totalcost += 1000;
                 $features[6] = "pool";}
         $_SESSION["features"] = $features;
+        $_SESSION["totalcost"] = $totalcost;
     }
     else{
         $features = "";
+        $_SESSION["totalcost"] = $totalcost;
     }
     if (isset($_POST["dp"])){
         $ctype = ($_POST["dp"]);
@@ -140,6 +149,13 @@
     else{
         $ccsc = "";
     }
+    if (isset($_POST["quantity"])){
+        $quantity= ($_POST["quantity"]);
+        $_SESSION['quantity'] = $quantity;
+    }
+    else{
+        $quantity = "";
+    }
     $fname = sanitise_input($fname);
     $lname = sanitise_input($lname);
     $email = sanitise_input($email);
@@ -156,6 +172,7 @@
     $cname = sanitise_input($cname);
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
+    $quantity = sanitise_input($quantity);
 
 	$errors = array("","","","","","","","","","","","");
     $errMsg = "";

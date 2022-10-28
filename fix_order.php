@@ -226,9 +226,9 @@
           <!-- PRODUCT SELECTION err#10 -->
           <p><label class='title' for='pd'>Product</label>
           <select name='pd' id='pd'>
-          <option value='Luxury' <?php echo (isset($_SESSION['product']) && $_SESSION['product'] === 'Luxury') ? 'selected' : ''; ?>>Beetle</option>
-          <option value='Trucks' <?php echo (isset($_SESSION['product']) && $_SESSION['product'] === 'Trucks') ? 'selected' : ''; ?>>Low Rider</option>
-          <option value='Vans' <?php echo (isset($_SESSION['product']) && $_SESSION['product'] === 'Vans') ? 'selected' : ''; ?>>Ranger</option>
+          <option value='Luxury' <?php echo (isset($_SESSION['product']) && $_SESSION['product'] === 'Luxury') ? 'selected' : ''; ?>>Beetle ($1000)</option>
+          <option value='Trucks' <?php echo (isset($_SESSION['product']) && $_SESSION['product'] === 'Trucks') ? 'selected' : ''; ?>>Low Rider ($1000)</option>
+          <option value='Vans' <?php echo (isset($_SESSION['product']) && $_SESSION['product'] === 'Vans') ? 'selected' : ''; ?>>Ranger ($1000)</option>
           <?php 
               if (isset($_SESSION['error10'])){
                 $error10 = $_SESSION['error10'];
@@ -243,17 +243,17 @@
             <label><input type='checkbox' name='features[]'
             value='ori' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][0]=="ori") ? 'checked' : '');?>/>Classic</label>
             <label><input type='checkbox' name='features[]'
-            value='spoiler' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][1]=="spoiler") ? 'checked' : '');?>/>Spoiler</label>
+            value='spoiler' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][1]=="spoiler") ? 'checked' : '');?>/>Spoiler (+$500)</label>
             <label><input type='checkbox' name='features[]'
-            value='leg' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][2]=="leg") ? 'checked' : '');?>/>Spider Legs</label>
+            value='leg' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][2]=="leg") ? 'checked' : '');?>/>Spider Legs (+$1250)</label>
             <label><input type='checkbox' name='features[]'
-            value='roc' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][3]=="roc") ? 'checked' : '');?> />Rocket</label>
+            value='roc' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][3]=="roc") ? 'checked' : '');?> />Rocket (+$1500)</label>
             <label><input type='checkbox' name='features[]'
-            value='o' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][4]=="o") ? 'checked' : '');?> />Open</label>
+            value='o' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][4]=="o") ? 'checked' : '');?> />Open Top (+$750)</label>
             <label><input type='checkbox' name='features[]'
-            value='w' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][5]=="w") ? 'checked' : '');?> />Low Wheel</label>
+            value='w' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][5]=="w") ? 'checked' : '');?> />Lowered Suspension (+$500)</label>
             <label><input type='checkbox' name='features[]'
-            value='pool' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][6]=="pool") ? 'checked' : '');?> />Open Pool</label>
+            value='pool' <?php echo (isset($_SESSION['features']) && ($_SESSION["features"][6]=="pool") ? 'checked' : '');?> />Open Poolback (+$1000)</label>
             
           <?php
 
@@ -272,8 +272,16 @@
         <!-- QUANTITY FIELD err#17 -->
         <form> 
           <label for='quantity'>Quantity</label>
-          <input type='number' id='quantity' name='quantity' value="<?php echo $_SESSION['quant'] ?>">
+          <input type='number' id='quantity' name='quantity' value="<?php echo $_SESSION['quantity'] ?>">
         </form>
+        <?php 
+          if (isset($_SESSION['totalcost'])){
+            $totalcost = $_SESSION['totalcost'];
+            $quantity = $_SESSION['quantity'];
+            $realtotalcost = $totalcost * $quantity;
+            echo "<p>Total Cost: $$realtotalcost</p>";
+          }
+        ?>
         <?php
               if (isset($_SESSION['error17'])){
                 $error17 = $_SESSION['error17'];
