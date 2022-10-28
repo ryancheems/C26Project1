@@ -4,13 +4,14 @@
     <link href="styles/style.css" rel="stylesheet"/>   
     <link href="styles/style_enquire.css" rel="stylesheet"/>
     <meta charset="utf-8" />
-    <meta name="description" content="Payment" />
+    <meta name="description" content="Enquire" />
     <meta name="keywords" 	 content="HTML, CSS, Javascript" />
-    <title>Payment</title>
+    <meta name="author"		 content="Thao Ngan Ngo" />
+    <title>Enquire</title>
 </head>
 <body>
 
-     	<?php include 'includes/header.inc'; ?>
+     	<?php include 'includes/header.inc'; session_start(); ?>
 
     <form class="signup-form" method="post" action="process_order.php"  novalidate="novalidate">
         <div class="form-header">
@@ -56,33 +57,32 @@
               <p class="title">State</p>
               <div class="ben-trai">
                 <input type="radio" name="VIC" id="VIC" value="VIC" checked="checked">
-                <label for="VIC">VIC</label><br>
+                <label for="VIC">VIC</label>
 
                 <input type="radio" name="VIC" id="NSW" value="NSW">
-                <label for="NSW">NSW</label><br>
+                <label for="NSW">NSW</label>
 
                 <input type="radio" name="VIC" id="QLD" value="QLD">
-                <label for="QLD">QLD</label><br>
+                <label for="QLD">QLD</label>
 
                 <input type="radio" name="VIC" id="NT" value="NT">
-                <label for="NT">NT</label><br>
+                <label for="NT">NT</label>
               </div>
 
               <div class="ben-phai">
-                <input class="phai" type="radio" name="VIC" id="WA" value="WA">
-                <label class="phai" for="WA">WA</label><br>
+                <input type="radio" name="VIC" id="WA" value="WA">
+                <label for="WA">WA</label>
 
-                <input class="phai" type="radio" name="VIC" id="SA" value="SA">
-                <label class="phai" for="SA">SA</label><br>
+                <input type="radio" name="VIC" id="SA" value="SA">
+                <label for="SA">SA</label>
 
-                <input class="phai" type="radio" name="VIC" id="TAS" value="TAS">
-                <label class="phai" for="TAS">TAS</label><br>
+                <input type="radio" name="VIC" id="TAS" value="TAS">
+                <label for="TAS">TAS</label>
 
-                <input class="phai" type="radio" name="VIC" id="ACT" value="ACT">
-                <label class="phai" for="ACT">ACT</label><br>
+                <input type="radio" name="VIC" id="ACT" value="ACT">
+                <label for="ACT">ACT</label>
               </div>
-            </div>
-
+            </div>  
             <div>
               <label id="pct" class="title" for="pc">Postcode</label>
               <input class="insert" type="text" id="pc" name="pc" pattern="^\d{4}$" required="required"
@@ -112,28 +112,28 @@
 
         <p><label class="title" for="pd">Product</label>
         <select name="pd" id="pd">
-          <option value="Luxury"  selected="selected">Beetle</option>
-          <option value="Trucks">Low Rider</option>
-          <option value="Vans">Ranger</option>
+          <option value="Luxury"  selected="selected">Beetle ($1000)</option>
+          <option value="Trucks">Low Rider ($1000)</option>
+          <option value="Vans">Ranger ($1000)</option>
         </select>
         </p>
 
         <p class="title">Product features</p>
         
           <label><input type="checkbox" name="features[]"
-          value="ori" />Classic</label>
+          value="ori" checked="checked"/>Classic</label>
           <label><input type="checkbox" name="features[]"
-          value="spoiler" />Spoiler</label>
+          value="spoiler" />Spoiler (+$500)</label>
           <label><input type="checkbox" name="features[]"
-          value="leg" />Spider Legs</label>
+          value="leg" />Spider Legs (+$1250)</label>
           <label><input type="checkbox" name="features[]"
-          value="roc" />Rocket</label>
+          value="roc" />Rocket (+$1500)</label>
           <label><input type="checkbox" name="features[]"
-          value="o" />Open</label>
+          value="o" />Open Top (+$750)</label>
           <label><input type="checkbox" name="features[]"
-          value="w" />Low Wheel</label>
+          value="w" />Lowered Suspension (+$500)</label>
           <label><input type="checkbox" name="features[]"
-          value="pool" />Open Pool</label>
+          value="pool" />Open Poolback (+$1000)</label>
         
 
         <p><label class="title" for="cfeild">Comment field</label></p>
@@ -147,8 +147,7 @@
         <section>
         <p><label class="title" for="dp">Credit card type</label>
         <select name="dp" id="dp">
-          <option value=""  selected="selected"></option>
-          <option value="Visa">Visa</option>
+          <option value="Visa"  selected="selected">Visa</option>
           <option value="Mastercard">Mastercard</option>
           <option value="American Express">American Express</option>
         </select>
