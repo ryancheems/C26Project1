@@ -78,6 +78,10 @@
         else if(array_key_exists('tbutt2', $_POST)) {
             tbutt2();
         }
+         if (isset($_POST["bname"])){
+            $bname = ($_POST["bname"]);
+            echo  $_POST['bname'];
+        }
         function button1() {
             $buttonvar = "SELECT * FROM `orders`";
             echo "Selected All";
@@ -90,10 +94,7 @@
             </form>";
             
         }
-        if (isset($_POST["bname"])){
-            $bname = ($_POST["bname"]);
-            echo  $_POST['bname'];
-        }
+        
         function button3() {
             $buttonvar = "SELECT * FROM `orders` WHERE product == $bproduct";
             echo 
