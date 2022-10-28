@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+    session_start();
     function sanitise_input ($data) {
 		$data = trim($data);
 		$data = stripslashes($data);
@@ -7,74 +11,107 @@
 	}
     if (isset($_POST["fname"])){
         $fname = ($_POST["fname"]);
+        $_SESSION["fname"] = $fname;
     }
 	else{
-        header ("location: payment.php");
+        header ("location: payment.php");   
         $fname = "";
     }
     if (isset($_POST["lname"])){
         $lname = ($_POST["lname"]);
+        $_SESSION["lname"] = $lname;
     }
     else{
         $lname = "";
     }
     if (isset($_POST["email"])){
         $email = ($_POST["email"]);
+        $_SESSION["email"] = $email;
     }
     else{
         $email = "";
     }
     if (isset($_POST["sadd"])){
         $sadd = ($_POST["sadd"]);
+        $_SESSION["sadd"] = $sadd;
     }
     else{
         $sadd = "";
     }
     if (isset($_POST["st"])){
         $st = ($_POST["st"]);
+        $_SESSION["st"] = $st;
     }
     else{
         $st = "";
     }
     if (isset($_POST["VIC"])){
-        $state = ($_POST["VIC"]);
+        $VIC = ($_POST["VIC"]);
+        $_SESSION["VIC"] = $VIC;
     }
     else{
         $state = "";
     }
     if (isset($_POST["pc"])){
         $pc = ($_POST["pc"]);
+        $_SESSION["pc"] = $pc;
     }
     else{
         $pc = "";
     }
     if (isset($_POST["phone"])){
         $phone = ($_POST["phone"]);
+        $_SESSION["phone"] = $phone;
     }
     else{
         $phone = "";
     }
     if (isset($_POST["e"])){
         $contact = ($_POST["e"]);
+        $_SESSION["contact"] = $contact;
     }
     else{
         $contact = "";
     }
     if (isset($_POST["pd"])){
         $product = ($_POST["pd"]);
+        $_SESSION["product"] = $product;
     }
     else{
         $product = "";
     }
-    $features = "";
-    if (isset($_POST["features"])){
-        $features = ($_POST["features"]);
+
+    $features = array("0","0","0","0","0","0","0");
+    if (!empty($_POST["features"])){
+        foreach ($_POST["features"] as $value)
+            if ($value == "ori"){
+                $features[0] = "ori";}
+        foreach ($_POST["features"] as $value)
+            if ($value == "spoiler"){
+                $features[1] = "spoiler";}
+        foreach ($_POST["features"] as $value)
+            if ($value == "leg"){
+                $features[2] = "leg";}
+        foreach ($_POST["features"] as $value)
+            if ($value == "roc"){
+                $features[3] = "roc";}
+        foreach ($_POST["features"] as $value)
+            if ($value == "o"){
+                $features[4] = "o";}
+        foreach ($_POST["features"] as $value)
+            if ($value == "w"){
+                $features[5] = "w";}
+        foreach ($_POST["features"] as $value)
+            if ($value == "pool"){
+                $features[6] = "pool";}
+        $_SESSION["features"] = $features;
     }
     else{
         $features = "";
     }
     if (isset($_POST["dp"])){
         $ctype = ($_POST["dp"]);
+        $_SESSION["ctype"] = $ctype;
     }
     else{
         $ctype = "";
@@ -120,7 +157,7 @@
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
 
-	$errors = array("","","","","","","","","","","","","");
+	$errors = array("","","","","","","","","","","","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
@@ -200,7 +237,7 @@
 	$errMsg .= "<p>Must select product type<p>";
 	$errors[9] = "<p>* Must select product type.<p>";
     }
-    if ($features=="") {
+    if ($_SESSION[features]=="") {
 	$errMsg .= "<p>Must select features<p>";
 	$errors[10] = "<p>* Must select features.<p>";
     }
@@ -240,78 +277,22 @@
 					$errMsg .= "<p>American Express card should be 15 digits<p>";
 					$errors[12] = "<p>* American Express card should be 15 digits.<p>";
 				}
-				else if (substr($cnum, 0, 2) == 34 || substr($cnum, 0, 2) == 37){
+				else if ($cnum[0].$cnum[1] == 34 || $cnum[0].$cnum[1] == 37){
 					$errMsg .= "<p>American Express card should start with 34 or 37<p>";
 					$errors[12] = "<p>* American Express card should start with 34 or 37.<p>";
 				}
 			}
 		}
 	}
-	session_start();
-	$_SESSION = array();
-	session_destroy();
+
+	
+
     if ($errMsg==""){
-	    require_once "settings.php";
-	     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
-	    if (!$conn) {
-		// Displays an error message
-		echo "<p>Database connection failure</p>";
-	    } 
-	    else {
-		$query = "CREATE TABLE IF NOT EXISTS `orders` (
-		    order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		    order_status VARCHAR(40) NOT NULL ,
-		    fname VARCHAR(25) NOT NULL,
-		    lname VARCHAR(25) NOT NULL,
-		    email VARCHAR(40) NOT NULL,
-		    address VARCHAR(40) NOT NULL,
-		    surburb VARCHAR(40) NOT NULL ,
-		    state VARCHAR(40) NOT NULL ,
-		    postcode VARCHAR(40) NOT NULL ,
-		    phone INT NOT NULL,
-		    contact VARCHAR(40) NOT NULL,
-		    product VARCHAR(40) NOT NULL,
-		    features VARCHAR(40) NOT NULL
-		    )";
-		$result = mysqli_query($conn, $query);
-
-		if ($result) {
-		    $insert_query = "INSERT INTO `orders` ( fname, lname, email, address, surburb, state, postcode, phone, contact, product, features)
-			VALUES ( '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features')";
-		    $insert_result = mysqli_query($conn, $insert_query);
-		    if ($insert_result) {
-			echo "<p>Insert successful.</p>"; 
-		    }
-		    else {
-			echo "<p>insert not successfull.</p>";
-		    }
-		}
-		else {
-		    echo "<p>Create table unsuccessful.</p>";
-		}
-		mysqli_close($conn);
-	    }
-
-		  session_set_cookie_params(3600);
-		 session_start();
-		$_SESSION['fname'] = $fname;
-		  $_SESSION['lname'] = $lname;
-		  $_SESSION['email'] = $email;
-		  $_SESSION['address'] = $sadd;
-		  $_SESSION['suburb'] = $st;
-		  $_SESSION['state'] = $state;
-		  $_SESSION['postcode'] = $pc;
-		  $_SESSION['phone'] = $phone;
-		  $_SESSION['contact'] = $contact;
-		  $_SESSION['product'] = $product;
-		  $_SESSION['features'] = $features;
-		  $_SESSION['ctype'] = $ctype;
-		  $_SESSION['cnum'] = $cnum;
-		header ("location: receipt.php");
+        header ("location: receipt.php");
     }
     else {
 	session_set_cookie_params(3600);
-	session_start();
+
 	 $i = 0;
 	while ($i<count($errors)){
 		if ($errors[$i] != ""){
