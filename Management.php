@@ -29,7 +29,7 @@
                 echo "<td>$row[1]</td>";
                 echo "<td>$row[2]</td>";
                 echo "<td>$row[3]</td>";
-                echo "<td>$row[4]</td>";
+                echo "<td>$row[5]</td>";
                 echo "<td>$row[5]</td>";
                 echo "<td>$row[6]</td>";
                 echo "<td>$row[7]</td>";
@@ -59,15 +59,47 @@
         else if(array_key_exists('button3', $_POST)) {
             button3();
         }
+        else if(array_key_exists('button4', $_POST)) {
+            button4();
+        }
+        else if(array_key_exists('button5', $_POST)) {
+            button5();
+        }
         function button1() {
             $buttonvar = "SELECT * FROM `orders`";
             echo "Selected All";
         }
         function button2() {
-            echo "This is Button2 that is selected";
+            
+            echo 
+            "<form method='post'>
+                <input type='text' name='bname' id='bname' value='Enter Name'>
+            </form>";
+
+        }
+        if (isset($_POST["bname"])){
+            $bname = ($_POST["bname"]);
+            echo  $_POST['bname'];
         }
         function button3() {
-            echo "This is Button3 that is selected";
+            echo 
+            "<form method='post'>
+                <input type='text' name='bproduct' id='bproduct' value='Enter Product Type'>
+            </form>";
+        }
+        if (isset($_POST["bproduct"])){
+            $bproduct = ($_POST["bproduct"]);
+            echo  $_POST['bproduct'];
+        }
+        function button4() {
+            // change this
+            $buttonvar = "SELECT * FROM `orders`";
+            echo "Pending";
+        }
+        function button5() {
+            // change this
+            $buttonvar = "SELECT * FROM `orders`";
+            echo "Price";
         }
     ?>
     <form method="post">
@@ -75,18 +107,18 @@
                 class="button" value="Select All" />
           
         <input type="submit" name="button2"
-                class="button" value="Button2" />
+                class="button" value="Search by Name" />
 
         <input type="submit" name="button3"
-                class="button" value="Button3" />
+                class="button" value="Search by Product" />
         
-        <input type="submit" name="button3"
-                class="button" value="Button3" />
+        <input type="submit" name="button4"
+                class="button" value="Pending Orders" />
         
-        <input type="submit" name="button3"
-                class="button" value="Button3" />
+        <input type="submit" name="button5"
+                class="button" value="Sort by Price" />
     </form>
-        
+
     <?php include 'includes/footer.inc'; ?>
 </body>
 </html>
