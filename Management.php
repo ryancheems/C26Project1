@@ -4,9 +4,8 @@
     <link href="styles/style.css" rel="stylesheet"/>   
     <link href="styles/style_enquire.css" rel="stylesheet"/>
     <meta charset="utf-8" />
-    <meta name="description" content="Enquire" />
-    <meta name="keywords" 	 content="HTML, CSS, Javascript" />
-    <meta name="author"		 content="Thao Ngan Ngo" />
+    <meta name="description" content="Manager" />
+    <meta name="keywords" 	 content="PHP, MySql" />
     <title>Enquire</title>
 </head>
 <body>
@@ -23,8 +22,10 @@
             echo "<p>select successful.</p>";
             $record = mysqli_fetch_assoo ($result);
 
-            echo "<table border='1'>";
-            echo "<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Hours</th></tr>";
+            echo "<tr><th>Order ID</th><th>Order Status</th><th>First Name</th><th>Last Name</th>
+            <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
+            <th>Product</th><th>Features</th></tr>";
+            require_once "receipt.php";
             while ($record) {
                 echo "<tr><td>{$record['orders']}</td>";
                 echo "<td>{$record['order number']}</td>";
