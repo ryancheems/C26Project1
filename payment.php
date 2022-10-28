@@ -146,7 +146,7 @@
         </form>
         <section>
         <p><label class="title" for="dp">Credit card type</label>
-        <select name="pd" id="pd">
+        <select name="dp" id="dp">
           <option value="Visa"  selected="selected">Visa</option>
           <option value="Mastercard">Mastercard</option>
           <option value="American Express">American Express</option>
