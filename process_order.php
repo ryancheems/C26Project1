@@ -288,11 +288,67 @@
 	
 
     if ($errMsg==""){
-        header ("location: receipt.php");
+	    require_once "settings.php";
+	     $conn = @mysqli_connect($host,$user,$pwd,$sql_db);
+	    if (!$conn) {
+		// Displays an error message
+		echo "<p>Database connection failure</p>";
+	    } 
+	    else {
+		$query = "CREATE TABLE IF NOT EXISTS `orders` (
+		    order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		    order_status VARCHAR(40) NOT NULL ,
+		    fname VARCHAR(25) NOT NULL,
+		    lname VARCHAR(25) NOT NULL,
+		    email VARCHAR(40) NOT NULL,
+		    address VARCHAR(40) NOT NULL,
+		    surburb VARCHAR(40) NOT NULL ,
+		    state VARCHAR(40) NOT NULL ,
+		    postcode VARCHAR(40) NOT NULL ,
+		    phone INT NOT NULL,
+		    contact VARCHAR(40) NOT NULL,
+		    product VARCHAR(40) NOT NULL,
+		    features VARCHAR(40) NOT NULL
+		    )";
+		$result = mysqli_query($conn, $query);
+
+		if ($result) {
+		    $insert_query = "INSERT INTO `orders` ( fname, lname, email, address, surburb, state, postcode, phone, contact, product, features)
+			VALUES ( '$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features')";
+		    $insert_result = mysqli_query($conn, $insert_query);
+		    if ($insert_result) {
+			echo "<p>Insert successful.</p>"; 
+		    }
+		    else {
+			echo "<p>insert not successfull.</p>";
+		    }
+		}
+		else {
+		    echo "<p>Create table unsuccessful.</p>";
+		}
+		mysqli_close($conn);
+	    }
+
+		  session_set_cookie_params(3600);
+		 session_start();
+		$_SESSION['fname'] = $fname;
+		  $_SESSION['lname'] = $lname;
+		  $_SESSION['email'] = $email;
+		  $_SESSION['address'] = $sadd;
+		  $_SESSION['suburb'] = $st;
+		  $_SESSION['state'] = $state;
+		  $_SESSION['postcode'] = $pc;
+		  $_SESSION['phone'] = $phone;
+		  $_SESSION['contact'] = $contact;
+		  $_SESSION['product'] = $product;
+		  $_SESSION['features'] = $features;
+		  $_SESSION['ctype'] = $ctype;
+		  $_SESSION['cnum'] = $cnum;
+		header ("location: receipt.php");
     }
     else {
 	session_set_cookie_params(3600);
-
+	session_start();
 	 $i = 0;
 	while ($i<count($errors)){
 		if ($errors[$i] != ""){
