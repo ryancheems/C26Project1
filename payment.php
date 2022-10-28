@@ -120,19 +120,19 @@
 
         <p class="title">Product features</p>
         
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="ori" />Classic</label>
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="spoiler" />Spoiler</label>
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="leg" />Spider Legs</label>
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="roc" />Rocket</label>
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="o" />Open</label>
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="w" />Low Wheel</label>
-          <label><input type="checkbox" name="features"
+          <label><input type="checkbox" name="features[]"
           value="pool" />Open Pool</label>
         
 
