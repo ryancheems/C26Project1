@@ -142,7 +142,7 @@
         <h1>PAYMENT FORM</h1>
          <form> 
           <label for="quantity">Quantity</label>
-          <input type="number" id="quantity" name="quantity">
+          <input type="number" id="quantity" name="quantity" value=1>
         </form>
         <section>
         <p><label class="title" for="dp">Credit card type</label>
