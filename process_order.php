@@ -120,7 +120,7 @@
     $cexp = sanitise_input($cexp);
     $ccsc = sanitise_input($ccsc);
 
-	$errors = array("","","","","","","","","","","","");
+	$errors = array("","","","","","","","","","","","","");
     $errMsg = "";
     if ($fname=="") {
         $errMsg .= "<p>You must enter your first name.</p>";
