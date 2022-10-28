@@ -46,8 +46,8 @@
         $st = "";
     }
     if (isset($_POST["VIC"])){
-        $VIC = ($_POST["VIC"]);
-        $_SESSION["VIC"] = $VIC;
+        $state = ($_POST["VIC"]);
+        $_SESSION["VIC"] = $state;
     }
     else{
         $state = "";
@@ -87,27 +87,21 @@
         foreach ($_POST["features"] as $value)
             if ($value == "ori"){
                 $features[0] = "ori";}
-        foreach ($_POST["features"] as $value)
             if ($value == "spoiler"){
                 $totalcost += 500;
                 $features[1] = "spoiler";}
-        foreach ($_POST["features"] as $value)
             if ($value == "leg"){
                 $totalcost += 1250;
                 $features[2] = "leg";}
-        foreach ($_POST["features"] as $value)
             if ($value == "roc"){
                 $totalcost += 1500;
                 $features[3] = "roc";}
-        foreach ($_POST["features"] as $value)
             if ($value == "o"){
                 $totalcost += 750;
                 $features[4] = "o";}
-        foreach ($_POST["features"] as $value)
             if ($value == "w"){
                 $totalcost += 500;
                 $features[5] = "w";}
-        foreach ($_POST["features"] as $value)
             if ($value == "pool"){
                 $totalcost += 1000;
                 $features[6] = "pool";}
@@ -364,18 +358,18 @@
 		header ("location: receipt.php");
     }
     else {
-	session_set_cookie_params(3600);
-	session_start();
-	 $i = 0;
-	while ($i<count($errors)){
-		if ($errors[$i] != ""){
-			$errNum = $i+1;
-			$err = "<section class = 'red'>".$errors[$i]."</section>";
-			$_SESSION['error'.$errNum] = $err;
-		}
-		$i +=1;
-	 } 
-        header ("location: fix_order.php");
+        session_set_cookie_params(3600);
+        session_start();
+        $i = 0;
+        while ($i<count($errors)){
+            if ($errors[$i] != ""){
+                $errNum = $i+1;
+                $err = "<section class = 'red'>".$errors[$i]."</section>";
+                $_SESSION['error'.$errNum] = $err;
+            }
+            $i +=1;
+        } 
+            header ("location: fix_order.php");
     }
 
 
