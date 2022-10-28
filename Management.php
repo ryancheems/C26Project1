@@ -83,7 +83,7 @@
             echo "Selected All";
         }
         function button2() {
-            
+            $buttonvar = "SELECT * FROM `orders` WHERE fname == $bname";
             echo 
             "<form method='post'>
             <input type='text' name='bname' id='bname' value='Enter Name'>
@@ -95,6 +95,7 @@
             echo  $_POST['bname'];
         }
         function button3() {
+            $buttonvar = "SELECT * FROM `orders` WHERE product == $bproduct";
             echo 
             "<form method='post'>
             <input type='text' name='bproduct' id='bproduct' value='Enter Product Type'>
@@ -106,12 +107,12 @@
         }
         function button4() {
             // change this
-            $buttonvar = "SELECT * FROM `orders`";
+            $buttonvar = "SELECT * FROM `orders` WHERE order_status == 'Pending'";
             echo "Pending";
         }
         function button5() {
             // change this
-            $buttonvar = "SELECT * FROM `orders`";
+            $buttonvar = "SELECT * FROM `orders` ORDER BY  order_cost DESC";
             echo "Price";
         }
         function tbutt1() {
