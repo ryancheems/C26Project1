@@ -4,10 +4,9 @@
     <link href="styles/style.css" rel="stylesheet"/>   
     <link href="styles/style_enquire.css" rel="stylesheet"/>
     <meta charset="utf-8" />
-    <meta name="description" content="Enquire" />
+    <meta name="description" content="Payment" />
     <meta name="keywords" 	 content="HTML, CSS, Javascript" />
-    <meta name="author"		 content="Thao Ngan Ngo" />
-    <title>Enquire</title>
+    <title>Payment</title>
 </head>
 <body>
 
@@ -147,7 +146,7 @@
         </form>
         <section>
         <p><label class="title" for="dp">Credit card type</label>
-        <select name="dp" id="dp">
+        <select name="pd" id="pd">
           <option value="Visa"  selected="selected">Visa</option>
           <option value="Mastercard">Mastercard</option>
           <option value="American Express">American Express</option>
