@@ -248,7 +248,7 @@
 	$errMsg .= "<p>Must select product type<p>";
 	$errors[9] = "<p>* Must select product type.<p>";
     }
-    if ($features=="") {
+    if ($_SESSION["features"]=="") {
 	$errMsg .= "<p>Must select features<p>";
 	$errors[10] = "<p>* Must select features.<p>";
     }
@@ -323,7 +323,7 @@
         $errMsg .= "<p>Only numbers allowed in CVV.</p>";
 	$errors[15] =  "<p>* Only numbers allowed in CVV.</p>";   
     }
-    else if (strlen($ccsc)!=4) {
+    else if (strlen($ccsc)!=3) {
         $errMsg .= "<p>Length of CVV should be 3 digits</p>";
 	$errors[15] =  "<p>* Length of CVV should be 3 digits.</p>";    
     }
