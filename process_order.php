@@ -353,8 +353,8 @@
 	    else {
 		$query = "CREATE TABLE IF NOT EXISTS `orders` (
 		    order_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		    order_status VARCHAR(40) NOT NULL ,
-		    order_date VARCHAR(40) NOT NULL ,
+		    order_status VARCHAR(40) NOT NULL,
+		    `order_date` VARCHAR(40) NOT NULL,
 		    fname VARCHAR(25) NOT NULL,
 		    lname VARCHAR(25) NOT NULL,
 		    email VARCHAR(40) NOT NULL,
@@ -375,10 +375,10 @@
 		    order_cost INT NOT NULL
 		    )";
 		$result = mysqli_query($conn, $query);
-
+		$ordate = date('Y/m/d');
 		if ($result) {
-		    $insert_query = "INSERT INTO `orders` (order_status, order_date, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, cardtype, cardnum, cardname, cardexp, cardcsc, quantity, order_cost)
-			VALUES ('PENDING', date('Y/m/d'),'$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity', '$totalcost')";
+		    $insert_query = "INSERT INTO `orders` (order_status, `order_date`, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, cardtype, cardnum, cardname, cardexp, cardcsc, quantity, order_cost)
+			VALUES ('PENDING', '$ordate','$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity', '$totalcost')";
 		    $insert_result = mysqli_query($conn, $insert_query);
 		    if ($insert_result) {
 			echo "<p>Insert successful.</p>"; 
