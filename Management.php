@@ -14,7 +14,11 @@
     session_start();
     if (!(isset($_SESSION["buttonvar"]))){
         $buttonvar = "SELECT * FROM `orders`";
+        $bname = "";
+        $bproduct = "";
         $_SESSION['buttonvar'] = $buttonvar;
+        $_SESSION['name'] = $bname;
+        $_SESSION['product'] = $bproduct;
     }
     echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>Order Date</th><th>First Name</th><th>Last Name</th>
@@ -90,7 +94,7 @@
         }
         if (isset($_POST["bproduct"])){
             $bproduct = ($_POST["bproduct"]);
-            $_SESSION['product'] = $product;
+            $_SESSION['product'] = $bproduct;
             echo  $_POST['bproduct'];
         }
         function button1() {
