@@ -22,6 +22,7 @@
         $_SESSION['bproduct'] = $bproduct;
     }
 
+
     require_once "settings.php";
     $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
     if ($conn) {
@@ -94,7 +95,7 @@
              $_SESSION['bname'] = $bname;
 
              $bname = $_SESSION['bname'];
-             $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname' OR lname = '$bname' OR (fname. ' ' .lname) = '$bname'";
+             $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname' OR lname = '$bname' OR CONCAT(fname, ' ', lname) = '$bname'";
              $_SESSION['buttonvar'] = $buttonvar;
             echo  $_POST['bname'];
             echo $buttonvar;
@@ -115,7 +116,7 @@
         }
         function button2() {
             $bname = $_SESSION['bname'];
-            $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname' OR lname = '$bname' OR (fname. ' ' .lname) = '$bname'";
+            $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname' OR lname = '$bname' OR CONCAT(fname, ' ', lname) = '$bname'";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
@@ -142,7 +143,13 @@
         }
         function button5() {
             // change this
-            $buttonvar = "SELECT * FROM `orders` ORDER BY  order_cost DESC";
+            if ($_SESSION['buttonvar'] == "SELECT * FROM `orders` ORDER BY  order_cost DESC"){
+                $buttonvar = "SELECT * FROM `orders` ORDER BY  order_cost ASC";
+            }
+            else{
+                $buttonvar = "SELECT * FROM `orders` ORDER BY  order_cost DESC";
+            }
+            
             $_SESSION['buttonvar'] = $buttonvar;
             echo "Price";
         }
