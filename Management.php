@@ -58,7 +58,6 @@
                 echo "<td><form action='' method='post'>
                 <button name='tbutt' value='$row[0]'>Update</button>
               </form></td>";
-		echo "'tbutt $row[0]'";
                 if (($row[1])=='PENDING'){
                     echo "<td><form action='' method='post'>
                     <button name='tbutt2' value='$row[0]'>Cancel</button>
