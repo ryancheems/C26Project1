@@ -106,7 +106,8 @@
             echo "Selected All";
         }
         function button2() {
-            $buttonvar = "SELECT * FROM `orders` WHERE fname == $_SESSION['bname']";
+            $bname = $_SESSION['bname'];
+            $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname']";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
@@ -116,7 +117,8 @@
         }
         
         function button3() {
-            $buttonvar = "SELECT * FROM `orders` WHERE product == $_SESSION['bproduct']";
+            $bproduct = $_SESSION['bproduct'];
+            $buttonvar = "SELECT * FROM `orders` WHERE product = '$bproduct']";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
@@ -126,7 +128,7 @@
 
         function button4() {
             // change this
-            $buttonvar = "SELECT * FROM `orders` WHERE order_status == 'PENDING'";
+            $buttonvar = "SELECT * FROM `orders` WHERE order_status = 'PENDING'";
             $_SESSION['buttonvar'] = $buttonvar;
             echo "Pending";
         }
