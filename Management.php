@@ -12,13 +12,16 @@
     <?php include 'includes/header.inc'; ?>
     <?php 
     session_start();
-    if (!(isset($_SESSION["buttonvar"]))){
+    $_SESSION = array();
+    session_destroy();
+    session_start();
+    if (!(isset($_SESSION['buttonvar']))){
         $buttonvar = "SELECT * FROM `orders`";
         $bname = "";
         $bproduct = "";
         $_SESSION['buttonvar'] = $buttonvar;
-        $_SESSION['name'] = $bname;
-        $_SESSION['product'] = $bproduct;
+        $_SESSION['bname'] = $bname;
+        $_SESSION['bproduct'] = $bproduct;
     }
     echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>Order Date</th><th>First Name</th><th>Last Name</th>
@@ -89,12 +92,12 @@
         }
          if (isset($_POST["bname"])){
             $bname = ($_POST["bname"]);
-             $_SESSION['name'] = $bname;
+             $_SESSION['bname'] = $bname;
             echo  $_POST['bname'];
         }
         if (isset($_POST["bproduct"])){
             $bproduct = ($_POST["bproduct"]);
-            $_SESSION['product'] = $bproduct;
+            $_SESSION['bproduct'] = $bproduct;
             echo  $_POST['bproduct'];
         }
         function button1() {
@@ -103,7 +106,7 @@
             echo "Selected All";
         }
         function button2() {
-            $buttonvar = "SELECT * FROM `orders` WHERE fname == $_SESSION['name']";
+            $buttonvar = "SELECT * FROM `orders` WHERE fname == $_SESSION['bname']";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
@@ -113,7 +116,7 @@
         }
         
         function button3() {
-            $buttonvar = "SELECT * FROM `orders` WHERE product == $_SESSION['product']";
+            $buttonvar = "SELECT * FROM `orders` WHERE product == $_SESSION['bproduct']";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
