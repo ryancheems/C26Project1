@@ -12,9 +12,7 @@
     <?php include 'includes/header.inc'; ?>
     <?php 
     session_start();
-    $_SESSION = array();
-    session_destroy();
-    session_start();
+
     if (!(isset($_SESSION['buttonvar']))){
         $buttonvar = "SELECT * FROM `orders`";
         $bname = "";
@@ -23,10 +21,7 @@
         $_SESSION['bname'] = $bname;
         $_SESSION['bproduct'] = $bproduct;
     }
-    echo "<table border = '1'>";
-    echo "<tr><th>Order ID</th><th>Order Status</th><th>Order Date</th><th>First Name</th><th>Last Name</th>
-    <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
-    <th>Product</th><th>Features</th><th>Quantity</th><th>Cost</th></tr>";
+
     require_once "settings.php";
     $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
     if ($conn) {
@@ -34,6 +29,10 @@
         $query = $_SESSION['buttonvar'];
         $queryResult = mysqli_query($conn, $query);
         if ($queryResult){
+            echo "<table border = '1'>";
+            echo "<tr><th>Order ID</th><th>Order Status</th><th>Order Date</th><th>First Name</th><th>Last Name</th>
+            <th>Email</th><th>Address</th><th>Suburb</th><th>State</th><th>Postcode</th><th>Phone</th><th>Contact</th>
+            <th>Product</th><th>Features</th><th>Quantity</th><th>Cost</th></tr>";
             $row = mysqli_fetch_row($queryResult);
             while ($row){
                 echo "<tr><td>$row[0]</td>";
@@ -93,11 +92,20 @@
          if (isset($_POST["bname"])){
             $bname = ($_POST["bname"]);
              $_SESSION['bname'] = $bname;
+
+             $bname = $_SESSION['bname'];
+             $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname' OR lname = '$bname' OR (fname. ' ' .lname) = '$bname'";
+             $_SESSION['buttonvar'] = $buttonvar;
             echo  $_POST['bname'];
+            echo $buttonvar;
         }
         if (isset($_POST["bproduct"])){
             $bproduct = ($_POST["bproduct"]);
             $_SESSION['bproduct'] = $bproduct;
+
+            $bproduct = $_SESSION['bproduct'];
+            $buttonvar = "SELECT * FROM `orders` WHERE product = '$bproduct'";
+            $_SESSION['buttonvar'] = $buttonvar;
             echo  $_POST['bproduct'];
         }
         function button1() {
@@ -107,7 +115,7 @@
         }
         function button2() {
             $bname = $_SESSION['bname'];
-            $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname']";
+            $buttonvar = "SELECT * FROM `orders` WHERE fname = '$bname' OR lname = '$bname' OR (fname. ' ' .lname) = '$bname'";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
@@ -118,7 +126,7 @@
         
         function button3() {
             $bproduct = $_SESSION['bproduct'];
-            $buttonvar = "SELECT * FROM `orders` WHERE product = '$bproduct']";
+            $buttonvar = "SELECT * FROM `orders` WHERE product = '$bproduct'";
             $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
