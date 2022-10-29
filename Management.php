@@ -14,7 +14,7 @@
     session_start();
     if (!(isset($_SESSION["buttonvar"]))){
         $buttonvar = "SELECT * FROM `orders`";
-        $_SESSION["buttonvar"] = $buttonvar;
+        $_SESSION['buttonvar'] = $buttonvar;
     }
     echo "<table border = '1'>";
     echo "<tr><th>Order ID</th><th>Order Status</th><th>Order Date</th><th>First Name</th><th>Last Name</th>
@@ -24,7 +24,7 @@
     $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
     if ($conn) {
         echo "<p>Connection successful!</p>";
-        $query = $_SESSION["buttonvar"];
+        $query = $_SESSION['buttonvar'];
         $queryResult = mysqli_query($conn, $query);
         if ($queryResult){
             $row = mysqli_fetch_row($queryResult);
@@ -88,6 +88,11 @@
              $_SESSION['name'] = $bname;
             echo  $_POST['bname'];
         }
+        if (isset($_POST["bproduct"])){
+            $bproduct = ($_POST["bproduct"]);
+            $_SESSION['product'] = $product;
+            echo  $_POST['bproduct'];
+        }
         function button1() {
             $buttonvar = "SELECT * FROM `orders`";
             $_SESSION['buttonvar'] = $buttonvar;
@@ -111,11 +116,7 @@
             <input type='text' name='bproduct' id='bproduct' value='Enter Product Type'>
             </form>";
         }
-        if (isset($_POST["bproduct"])){
-            $bproduct = ($_POST["bproduct"]);
-            $_SESSION['product'] = $product;
-            echo  $_POST['bproduct'];
-        }
+
         function button4() {
             // change this
             $buttonvar = "SELECT * FROM `orders` WHERE order_status == 'PENDING'";
@@ -125,7 +126,7 @@
         function button5() {
             // change this
             $buttonvar = "SELECT * FROM `orders` ORDER BY  order_cost DESC";
-            $_SESSION["buttonvar"] = $buttonvar;
+            $_SESSION['buttonvar'] = $buttonvar;
             echo "Price";
         }
         function tbutt1() {
