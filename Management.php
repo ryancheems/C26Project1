@@ -30,6 +30,12 @@
         echo "<p>Connection successful!</p>";
         $query = $_SESSION['buttonvar'];
         $queryResult = mysqli_query($conn, $query);
+	if (substr($query, 0, 6) != "SELECT"){
+		$buttonvar = "SELECT * FROM `orders`";
+		$_SESSION['buttonvar'] = $buttonvar;
+		$query = $_SESSION['buttonvar'];
+        	$queryResult = mysqli_query($conn, $query);
+	}
         if ($queryResult){
             echo "<table border = '1'>";
             echo "<tr><th>Order ID</th><th>Order Status</th><th>Order Date</th><th>First Name</th><th>Last Name</th>
