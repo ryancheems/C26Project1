@@ -354,9 +354,6 @@
             <input id="sm" type="submit" value="Check out" >
         </form>
         </fieldset>
-    <?php
-      echo $_SESSION['errMsg'];
-    ?>
     </form>
       <?php include 'includes/footer.inc'; ?>
   </body>
