@@ -21,7 +21,8 @@
         $_SESSION['bname'] = $bname;
         $_SESSION['bproduct'] = $bproduct;
     }
-
+    $status_list = array();
+    $_SESSION['status_list'] = $status_list;
 
     require_once "settings.php";
     $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
@@ -36,6 +37,8 @@
             <th>Product</th><th>Features</th><th>Quantity</th><th>Cost</th></tr>";
             $row = mysqli_fetch_row($queryResult);
             while ($row){
+                array_push($status_list, $row[1]);
+                $_SESSION['status_list'] = $status_list;
                 echo "<tr><td>$row[0]</td>";
                 echo "<td>$row[1]</td>";
                 echo "<td>$row[2]</td>";
@@ -52,9 +55,14 @@
                 echo "<td>$row[13]</td>";
                 echo "<td>$row[19]</td>";
                 echo "<td>$row[20]</td>";
-                echo "<td><form method='post'><input type='submit' name='tbutt.$row[0]' id='tbutt' value='Update'></form></td>";
+                echo "<td><form action='' method='post'>
+                <button name='tbutt' value='$row[0]'>Update</button>
+              </form></td>";
+		echo "'tbutt $row[0]'";
                 if (($row[1])=='PENDING'){
-                    echo "<td><form method='post'><input type='submit' name='tbutt2' id='tbutt2' value='Cancel'></form></td></tr>";
+                    echo "<td><form action='' method='post'>
+                    <button name='tbutt2' value='$row[0]'>Cancel</button>
+                  </form></td></tr>";
                 }
                     
                 $row = mysqli_fetch_row($queryResult);
@@ -83,13 +91,39 @@
         }
         else if(array_key_exists('button5', $_POST)) {
             button5();
-        }
-        else if(array_key_exists('tbutt1', $_POST)) {
-            tbutt1();
-        }
-        else if(array_key_exists('tbutt2', $_POST)) {
-            tbutt2();
-        }
+        }//
+       // else if(array_key_exists('tbutt1', $_POST)) {
+        //    tbutt1();
+       // }
+       // else if(array_key_exists('tbutt2', $_POST)) { 
+        //    tbutt2();
+        //} 
+        if (isset($_POST['tbutt'])){
+            $i = $_POST['tbutt'];
+            tbutt($i);
+       }
+        if (isset($_POST['tbutt2'])){
+            $i = $_POST['tbutt2'];
+            tbutt2($i);
+       }
+
+      //  $i = 0;
+      //  while ($i<5){
+		//echo "tbutt $i<br>";
+       //     if(array_key_exists("tbutt $i", $_POST)){
+         //       tbutt($i);
+           // }
+            //$i = $i + 1;
+        //}
+       // $i = 0;
+       // while ($i<5){
+		//echo "tbutt2 $i <br>";
+        //    if(array_key_exists("tbutt2 $i", $_POST)){
+        //        tbutt2($i);
+         //   }
+         //   $i = $i + 1;
+        //}
+
          if (isset($_POST["bname"])){
             $bname = ($_POST["bname"]);
              $_SESSION['bname'] = $bname;
@@ -153,15 +187,33 @@
             $_SESSION['buttonvar'] = $buttonvar;
             echo "Price";
         }
-        function tbutt1() {
+        function tbutt($id_num) {
             // change this
-            $buttonvar = "SELECT * FROM `orders`";
-            echo "Edit";
+            $status_list = $_SESSION['status_list'];
+            if ($status_list[$id_num-1] == "PENDING"){
+                $buttonvar = "UPDATE `orders` SET order_status ='FULFILLED' WHERE order_id = '$id_num'";
+            }
+            else if ($status_list[$id_num-1] == "FULFILLED"){
+                $buttonvar = "UPDATE `orders` SET order_status ='PAID' WHERE order_id = '$id_num'";
+            }
+            else if ($status_list[$id_num-1] == "PAID"){
+                $buttonvar = "UPDATE `orders` SET order_status ='ARCHIVED' WHERE order_id = '$id_num'";
+            }
+            else{
+                $buttonvar = "UPDATE `orders` SET order_status ='PENDING' WHERE order_id = '$id_num'";
+
+            }
+            $_SESSION['status_list'] = $status_list;
+            $_SESSION['buttonvar'] = $buttonvar;
+            echo "Update $id_num";
+
+
         }
-        function tbutt2() {
+        function tbutt2($id_num) {
             // change this
-            $buttonvar = "SELECT * FROM `orders`";
-            echo "Cancel";
+            $buttonvar = "DELETE FROM `orders` WHERE order_id = '$id_num'";
+            $_SESSION['buttonvar'] = $buttonvar;
+            echo "Cancel $id_num";
         }
         ?>
     <form method="post">
