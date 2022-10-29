@@ -45,7 +45,7 @@
                 echo "<td>$row[13]</td>";
                 echo "<td>$row[19]</td>";
                 echo "<td>$row[20]</td>";
-                echo "<td><form method='post'><input type='submit' name='tbutt1' id='tbutt' value='Edit'></form></td>";
+                echo "<td><form method='post'><input type='submit' name='tbutt.$row[0]' id='tbutt' value='Update'></form></td>";
                 if (($row[1])=='PENDING'){
                     echo "<td><form method='post'><input type='submit' name='tbutt2' id='tbutt2' value='Cancel'></form></td></tr>";
                 }
@@ -85,17 +85,17 @@
         }
          if (isset($_POST["bname"])){
             $bname = ($_POST["bname"]);
-             $_SESSION["name"] = $bname;
+             $_SESSION['name'] = $bname;
             echo  $_POST['bname'];
         }
         function button1() {
             $buttonvar = "SELECT * FROM `orders`";
-            $_SESSION["buttonvar"] = $buttonvar;
+            $_SESSION['buttonvar'] = $buttonvar;
             echo "Selected All";
         }
         function button2() {
-            $buttonvar = "SELECT * FROM `orders` WHERE fname == $_SESSION["name"]";
-            $_SESSION["buttonvar"] = $buttonvar;
+            $buttonvar = "SELECT * FROM `orders` WHERE fname == $_SESSION['name']";
+            $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
             <input type='text' name='bname' id='bname' value='Enter Name'>
@@ -104,8 +104,8 @@
         }
         
         function button3() {
-            $buttonvar = "SELECT * FROM `orders` WHERE product == $_SESSION["product"]";
-            $_SESSION["buttonvar"] = $buttonvar;
+            $buttonvar = "SELECT * FROM `orders` WHERE product == $_SESSION['product']";
+            $_SESSION['buttonvar'] = $buttonvar;
             echo 
             "<form method='post'>
             <input type='text' name='bproduct' id='bproduct' value='Enter Product Type'>
@@ -113,13 +113,13 @@
         }
         if (isset($_POST["bproduct"])){
             $bproduct = ($_POST["bproduct"]);
-            $_SESSION["product"] = $product;
+            $_SESSION['product'] = $product;
             echo  $_POST['bproduct'];
         }
         function button4() {
             // change this
             $buttonvar = "SELECT * FROM `orders` WHERE order_status == 'PENDING'";
-            $_SESSION["buttonvar"] = $buttonvar;
+            $_SESSION['buttonvar'] = $buttonvar;
             echo "Pending";
         }
         function button5() {
