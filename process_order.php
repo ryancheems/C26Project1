@@ -310,7 +310,7 @@
 	$errMsg .= "<p>Must enter card name<p>";
 	$errors[13] = "<p>* Must enter card name.<p>";
     }
-    else if (!preg_match("/^[a-zA-Z]*$/",$cname)) {
+    else if (!preg_match("/^[a-zA-Z ]*$/",$cname)) {
         $errMsg .= "<p>Only alpha letters allowed in card name.</p>";
 	$errors[13] =  "<p>* Only alpha letters allowed in card name.</p>";    
     }
@@ -376,6 +376,8 @@
 		    )";
 		$result = mysqli_query($conn, $query);
 		$ordate = date('Y/m/d');
+		$features = $_SESSION["features"];
+		$features = implode(", ",$features);
 		if ($result) {
 		    $insert_query = "INSERT INTO `orders` (order_status, `order_date`, fname, lname, email, address, surburb, state, postcode, phone, contact, product, features, cardtype, cardnum, cardname, cardexp, cardcsc, quantity, order_cost)
 			VALUES ('PENDING', '$ordate','$fname', '$lname', '$email', '$sadd', '$st', '$state', '$pc', '$phone', '$contact', '$product', '$features', '$ctype', '$cnum', '$cname', '$cexp', '$ccsc', '$quantity', '$totalcost')";
